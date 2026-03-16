@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -16,10 +17,14 @@ export function Header() {
         {/* Logo */}
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-3">
-            <div className="flex flex-col">
-              <span className="text-xl font-bold text-primary">Chris Parker</span>
-              <span className="text-xs text-muted-foreground">for County Commissioner</span>
-            </div>
+            <Image
+              src="/images/logo.jpg"
+              alt="Chris Parker for Forsyth County Commissioner District B"
+              width={160}
+              height={80}
+              className="h-14 w-auto md:h-16"
+              priority
+            />
           </Link>
         </div>
 
@@ -81,7 +86,13 @@ export function Header() {
         >
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
-              <span className="text-xl font-bold text-primary">Chris Parker</span>
+              <Image
+                src="/images/logo.jpg"
+                alt="Chris Parker for Forsyth County Commissioner District B"
+                width={120}
+                height={60}
+                className="h-12 w-auto"
+              />
             </Link>
             <button
               type="button"
