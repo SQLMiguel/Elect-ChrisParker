@@ -1,0 +1,80 @@
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { CheckCircle, ArrowRight } from "lucide-react"
+
+const highlights = [
+  "Lifelong Forsyth County resident",
+  "Successful business owner for 15+ years",
+  "Active community volunteer",
+  "Proven leader and problem solver",
+  "Committed to fiscal responsibility",
+  "Dedicated family man",
+]
+
+export function AboutPreview() {
+  return (
+    <section className="py-16 lg:py-24 bg-secondary">
+      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+          {/* Image */}
+          <div className="relative order-2 lg:order-1">
+            <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-muted shadow-xl">
+              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/10">
+                <div className="text-center p-8">
+                  <p className="text-muted-foreground text-sm">Family photo placeholder</p>
+                </div>
+              </div>
+            </div>
+            {/* Quote callout */}
+            <div className="absolute -bottom-6 -right-6 max-w-xs rounded-xl bg-card p-6 shadow-lg border border-border lg:-right-8">
+              <blockquote className="text-sm italic text-foreground">
+                &ldquo;I believe in servant leadership. My job is to work for you, not the other way around.&rdquo;
+              </blockquote>
+              <p className="mt-2 text-sm font-semibold text-primary">— Chris Parker</p>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="order-1 lg:order-2">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-accent">
+              Meet Chris Parker
+            </h2>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
+              A Leader Who Listens
+            </p>
+            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+              Born and raised in North Carolina, Chris Parker has called Forsyth County home 
+              for over two decades. As a successful business owner, devoted husband and father, 
+              and active community volunteer, Chris understands the challenges and opportunities 
+              facing our county.
+            </p>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Chris believes in common-sense solutions, fiscal responsibility, and putting 
+              people over politics. He&apos;s not running to be a career politician—he&apos;s 
+              running to serve his community and make Forsyth County an even better place 
+              to live, work, and raise a family.
+            </p>
+
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+              {highlights.map((item) => (
+                <li key={item} className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-accent shrink-0" />
+                  <span className="text-sm text-foreground">{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-8">
+              <Button asChild size="lg">
+                <Link href="/about">
+                  Read Full Bio
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
