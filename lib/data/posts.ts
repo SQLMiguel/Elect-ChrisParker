@@ -7,6 +7,7 @@ export interface BlogPost {
   author: string
   category: "announcement" | "press-release" | "endorsement" | "event" | "policy"
   featured: boolean
+  image?: string
 }
 
 export const posts: BlogPost[] = [
@@ -14,6 +15,7 @@ export const posts: BlogPost[] = [
     slug: "chris-parker-announces-candidacy",
     title: "Chris Parker Announces Candidacy for Forsyth County Commissioner",
     excerpt: "Local business leader and community advocate Chris Parker officially announces his campaign for Forsyth County Commissioner, District B.",
+    image: "/images/candidacy-announcement.jpg",
     content: `Today, I am honored to announce my candidacy for Forsyth County Commissioner, District B.
 
 For over two decades, I have called Forsyth County home. I've built a business here, raised my family here, and served our community through countless volunteer hours. Now, I'm ready to take on a new challenge: ensuring that Forsyth County remains a great place to live, work, and raise a family for generations to come.
