@@ -128,7 +128,7 @@ export function UpdatesSignupForm() {
           />
           <label
             htmlFor="sms-opt-in"
-            className="text-sm cursor-pointer font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            className="text-sm cursor-pointer font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-foreground"
           >
             Yes, send me SMS campaign updates
           </label>
@@ -145,7 +145,7 @@ export function UpdatesSignupForm() {
           />
           <label
             htmlFor="email-opt-in"
-            className="text-sm cursor-pointer font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            className="text-sm cursor-pointer font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-foreground"
           >
             Yes, send me email campaign updates
           </label>
