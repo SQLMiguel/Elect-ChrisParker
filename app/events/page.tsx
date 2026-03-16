@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Calendar, Clock, MapPin, Users, Mic, Heart, PartyPopper, MessageSquare, ArrowRight } from "lucide-react"
 import { events } from "@/lib/data/events"
@@ -96,9 +97,21 @@ export default function EventsPage() {
                 return (
                   <div
                     key={event.id}
-                    className="rounded-xl border border-border bg-card p-6 shadow-sm hover:shadow-md transition-shadow"
+                    className="rounded-xl border border-border bg-card shadow-sm hover:shadow-md transition-shadow overflow-hidden"
                   >
-                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+                    {/* Event Image */}
+                    {event.image && (
+                      <div className="aspect-video w-full overflow-hidden">
+                        <Image
+                          src={event.image}
+                          alt={event.title}
+                          width={800}
+                          height={450}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    )}
+                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 p-6">
                       <div className="flex gap-4">
                         {/* Date Badge */}
                         <div className="shrink-0 flex flex-col items-center justify-center rounded-lg bg-primary/10 px-4 py-3 text-center">

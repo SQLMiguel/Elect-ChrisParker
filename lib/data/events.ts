@@ -9,6 +9,7 @@ export interface CampaignEvent {
   type: "rally" | "townhall" | "fundraiser" | "volunteer" | "debate" | "meet-greet"
   rsvpLink?: string
   isPast: boolean
+  image?: string
 }
 
 export const events: CampaignEvent[] = [
@@ -23,6 +24,7 @@ export const events: CampaignEvent[] = [
     type: "rally",
     rsvpLink: "/get-involved",
     isPast: false,
+    image: "/images/campaign-kickoff-rally.jpg",
   },
   {
     id: "2",
