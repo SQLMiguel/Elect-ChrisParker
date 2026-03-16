@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { campaignInfo } from "@/lib/data/navigation"
 import { ChevronRight } from "lucide-react"
@@ -68,18 +69,17 @@ export function Hero() {
             </div>
           </div>
           
-          {/* Image placeholder - user will upload actual photo */}
+          {/* Official Portrait */}
           <div className="relative">
             <div className="aspect-[4/5] overflow-hidden rounded-2xl bg-muted shadow-2xl">
-              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/20 to-accent/20">
-                <div className="text-center p-8">
-                  <div className="mx-auto h-32 w-32 rounded-full bg-primary/20 flex items-center justify-center mb-4">
-                    <span className="text-4xl font-bold text-primary">CP</span>
-                  </div>
-                  <p className="text-muted-foreground text-sm">Campaign photo placeholder</p>
-                  <p className="text-muted-foreground text-xs mt-1">Upload your photo to replace</p>
-                </div>
-              </div>
+              <Image
+                src="/images/chris-parker-portrait.webp"
+                alt="Chris Parker - Forsyth County Commissioner Candidate"
+                width={400}
+                height={500}
+                className="h-full w-full object-cover"
+                priority
+              />
             </div>
             {/* Decorative elements */}
             <div className="absolute -bottom-4 -right-4 h-72 w-72 rounded-2xl bg-accent/10 -z-10" />

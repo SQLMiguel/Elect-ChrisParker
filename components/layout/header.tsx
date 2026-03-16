@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Bell } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { mainNavigation } from "@/lib/data/navigation"
 import { cn } from "@/lib/utils"
@@ -54,9 +54,15 @@ export function Header() {
         </div>
 
         {/* Desktop CTA */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-3">
           <Button asChild variant="outline" size="sm">
             <Link href="/get-involved">Volunteer</Link>
+          </Button>
+          <Button asChild size="sm" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground gap-1.5">
+            <Link href="/get-involved#signup">
+              <Bell className="h-3.5 w-3.5" />
+              Stay Updated
+            </Link>
           </Button>
           <Button asChild size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground">
             <Link href="/donate">Donate</Link>
@@ -121,6 +127,12 @@ export function Header() {
                 <Button asChild variant="outline" className="w-full">
                   <Link href="/get-involved" onClick={() => setMobileMenuOpen(false)}>
                     Volunteer
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground gap-2">
+                  <Link href="/get-involved#signup" onClick={() => setMobileMenuOpen(false)}>
+                    <Bell className="h-4 w-4" />
+                    Stay Updated
                   </Link>
                 </Button>
                 <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">

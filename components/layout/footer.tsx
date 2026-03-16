@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from "lucide-react"
 import { footerNavigation, campaignInfo } from "@/lib/data/navigation"
+import { UpdatesSignupForm } from "@/components/features/updates-signup-form"
 
 export function Footer() {
   return (
@@ -108,21 +109,11 @@ export function Footer() {
             <div className="mt-6">
               <h4 className="text-sm font-medium">Stay Updated</h4>
               <p className="mt-2 text-sm text-primary-foreground/80">
-                Get the latest campaign news delivered to your inbox.
+                Get the latest campaign news delivered to your inbox and receive SMS updates.
               </p>
-              <form className="mt-3 flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 rounded-md border-0 bg-primary-foreground/10 px-3 py-2 text-sm text-primary-foreground placeholder:text-primary-foreground/50 focus:ring-2 focus:ring-primary-foreground/20"
-                />
-                <button
-                  type="submit"
-                  className="rounded-md bg-accent px-4 py-2 text-sm font-medium text-accent-foreground hover:bg-accent/90 transition-colors"
-                >
-                  Join
-                </button>
-              </form>
+              <div className="mt-3">
+                <UpdatesSignupForm />
+              </div>
             </div>
           </div>
         </div>

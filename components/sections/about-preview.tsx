@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { CheckCircle, ArrowRight } from "lucide-react"
 
@@ -19,11 +20,13 @@ export function AboutPreview() {
           {/* Image */}
           <div className="relative order-2 lg:order-1">
             <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-muted shadow-xl">
-              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/10">
-                <div className="text-center p-8">
-                  <p className="text-muted-foreground text-sm">Family photo placeholder</p>
-                </div>
-              </div>
+              <Image
+                src="/images/chris-parker-portrait.webp"
+                alt="Chris Parker - Official Portrait"
+                width={400}
+                height={300}
+                className="h-full w-full object-cover"
+              />
             </div>
             {/* Quote callout */}
             <div className="absolute -bottom-6 -right-6 max-w-xs rounded-xl bg-card p-6 shadow-lg border border-border lg:-right-8">

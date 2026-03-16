@@ -2,7 +2,8 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { VolunteerForm } from "@/components/features/volunteer-form"
-import { Home, Phone, Share2, Users, MapPin, Calendar, Heart, Megaphone } from "lucide-react"
+import { UpdatesSignupForm } from "@/components/features/updates-signup-form"
+import { Home, Phone, Share2, Users, MapPin, Calendar, Heart, Megaphone, Bell } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Get Involved",
@@ -82,6 +83,54 @@ export default function GetInvolvedPage() {
 
             {/* Volunteer Form */}
             <VolunteerForm />
+          </div>
+        </div>
+      </section>
+
+      {/* Stay Updated / Signup Section */}
+      <section id="signup" className="py-16 lg:py-20 bg-primary text-primary-foreground">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <Bell className="h-5 w-5 text-accent" />
+                <span className="text-sm font-semibold uppercase tracking-wider text-accent">
+                  Stay in the Loop
+                </span>
+              </div>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-balance">
+                Sign Up for Campaign Updates
+              </h2>
+              <p className="mt-4 text-lg text-primary-foreground/85 leading-relaxed">
+                Be the first to hear about town halls, endorsements, important vote dates, 
+                and how you can make a difference. Sign up for email updates and SMS text alerts.
+              </p>
+              <ul className="mt-6 space-y-2 text-primary-foreground/80 text-sm">
+                <li className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0" />
+                  Breaking news and endorsements
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0" />
+                  Upcoming events and town halls
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0" />
+                  Election reminders and voting information
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0" />
+                  Ways to get involved and volunteer
+                </li>
+              </ul>
+            </div>
+            <div className="rounded-2xl bg-background p-8 shadow-xl">
+              <h3 className="text-lg font-semibold text-foreground mb-1">Join Our List</h3>
+              <p className="text-sm text-muted-foreground mb-6">
+                Choose how you want to stay connected with the campaign.
+              </p>
+              <UpdatesSignupForm />
+            </div>
           </div>
         </div>
       </section>

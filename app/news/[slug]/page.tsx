@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { notFound } from "next/navigation"
 import { Calendar, User, ArrowLeft, Share2, Facebook, Twitter } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -107,14 +108,27 @@ export default async function NewsPostPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Featured Image Placeholder */}
+      {/* Featured Image */}
       <section className="bg-background">
         <div className="mx-auto max-w-4xl px-4 lg:px-8">
-          <div className="aspect-video -mt-8 rounded-xl bg-muted shadow-lg overflow-hidden">
-            <div className="h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/10">
-              <span className="text-muted-foreground">Featured image placeholder</span>
+          {post.image ? (
+            <div className="aspect-video -mt-8 rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src={post.image}
+                alt={post.title}
+                width={800}
+                height={450}
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
-          </div>
+          ) : (
+            <div className="aspect-video -mt-8 rounded-xl bg-muted shadow-lg overflow-hidden">
+              <div className="h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/10">
+                <span className="text-muted-foreground">Featured image</span>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
