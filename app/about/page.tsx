@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { CheckCircle, ArrowRight, Briefcase, Users, Heart, Award } from "lucide-react"
@@ -99,17 +100,17 @@ export default function AboutPage() {
               </div>
             </div>
             
-            {/* Photo placeholder */}
+            {/* Photo */}
             <div className="relative">
               <div className="aspect-[4/5] overflow-hidden rounded-2xl bg-muted shadow-xl">
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/10">
-                  <div className="text-center p-8">
-                    <div className="mx-auto h-24 w-24 rounded-full bg-primary/20 flex items-center justify-center mb-4">
-                      <span className="text-3xl font-bold text-primary">CP</span>
-                    </div>
-                    <p className="text-muted-foreground text-sm">Official portrait placeholder</p>
-                  </div>
-                </div>
+                <Image
+                  src="/images/chris-parker-portrait.webp"
+                  alt="Chris Parker - Official Portrait"
+                  width={400}
+                  height={500}
+                  className="h-full w-full object-cover"
+                  priority
+                />
               </div>
             </div>
           </div>
