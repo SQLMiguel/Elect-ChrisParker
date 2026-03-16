@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowRight, Calendar } from "lucide-react"
 import { posts } from "@/lib/data/posts"
 import { Button } from "@/components/ui/button"
@@ -42,11 +43,21 @@ export function NewsPreview() {
                 index === 0 ? "lg:col-span-2 lg:flex-row" : ""
               }`}
             >
-              {/* Image placeholder */}
-              <div className={`bg-muted ${index === 0 ? "lg:w-1/2" : "aspect-video"}`}>
-                <div className="h-full min-h-[200px] flex items-center justify-center bg-gradient-to-br from-primary/5 to-accent/5">
-                  <span className="text-muted-foreground text-sm">Article image</span>
-                </div>
+              {/* Image */}
+              <div className={`bg-muted overflow-hidden ${index === 0 ? "lg:w-1/2" : "aspect-video"}`}>
+                {post.image ? (
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    width={600}
+                    height={400}
+                    className="h-full w-full object-cover min-h-[200px]"
+                  />
+                ) : (
+                  <div className="h-full min-h-[200px] flex items-center justify-center bg-gradient-to-br from-primary/5 to-accent/5">
+                    <span className="text-muted-foreground text-sm">Article image</span>
+                  </div>
+                )}
               </div>
 
               {/* Content */}

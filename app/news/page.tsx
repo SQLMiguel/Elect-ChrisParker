@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { Calendar, ArrowRight, Tag } from "lucide-react"
 import { posts } from "@/lib/data/posts"
 
@@ -78,11 +79,22 @@ export default function NewsPage() {
               Featured Story
             </h2>
             <article className="group relative grid gap-8 lg:grid-cols-2 lg:gap-12 rounded-2xl border border-border bg-card overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-              {/* Image placeholder */}
-              <div className="bg-muted aspect-video lg:aspect-auto lg:h-full">
-                <div className="h-full min-h-[300px] flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/10">
-                  <span className="text-muted-foreground text-sm">Featured image</span>
-                </div>
+              {/* Featured Image */}
+              <div className="bg-muted aspect-video lg:aspect-auto lg:h-full overflow-hidden">
+                {featuredPost.image ? (
+                  <Image
+                    src={featuredPost.image}
+                    alt={featuredPost.title}
+                    width={800}
+                    height={500}
+                    className="h-full w-full object-cover min-h-[300px]"
+                    priority
+                  />
+                ) : (
+                  <div className="h-full min-h-[300px] flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/10">
+                    <span className="text-muted-foreground text-sm">Featured image</span>
+                  </div>
+                )}
               </div>
 
               {/* Content */}
@@ -134,11 +146,21 @@ export default function NewsPage() {
                 key={post.slug}
                 className="group relative flex flex-col rounded-xl border border-border bg-card overflow-hidden shadow-sm hover:shadow-md transition-shadow"
               >
-                {/* Image placeholder */}
-                <div className="bg-muted aspect-video">
-                  <div className="h-full flex items-center justify-center bg-gradient-to-br from-primary/5 to-accent/5">
-                    <span className="text-muted-foreground text-xs">Article image</span>
-                  </div>
+                {/* Article Image */}
+                <div className="bg-muted aspect-video overflow-hidden">
+                  {post.image ? (
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      width={600}
+                      height={340}
+                      className="h-full w-full object-cover"
+                    />
+                  ) : (
+                    <div className="h-full flex items-center justify-center bg-gradient-to-br from-primary/5 to-accent/5">
+                      <span className="text-muted-foreground text-xs">Article image</span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Content */}

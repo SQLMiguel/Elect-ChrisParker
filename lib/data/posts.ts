@@ -59,6 +59,7 @@ Together, we will ensure that Forsyth County remains a safe place for our famili
     slug: "campaign-kickoff-announcement",
     title: "Join Us for the Campaign Kickoff Rally - April 15th",
     excerpt: "Mark your calendars! The official campaign kickoff rally will be held at Hanes Park Pavilion on April 15th.",
+    image: "/images/campaign-kickoff-rally.jpg",
     content: `We are excited to announce the official campaign kickoff rally!
 
 **When:** April 15, 2026, 6:00 PM - 8:00 PM
