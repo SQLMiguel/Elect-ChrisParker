@@ -5,7 +5,8 @@ export const mainNavigation = [
   { name: "Get Involved", href: "/get-involved" },
   { name: "News", href: "/news" },
   { name: "Events", href: "/events" },
-  { name: "Endorsements", href: "/endorsements" },
+  // TODO: Re-enable when real endorsements are available
+  // { name: "Endorsements", href: "/endorsements" },
   { name: "Contact", href: "/contact" },
 ]
 
@@ -13,12 +14,13 @@ export const footerNavigation = {
   campaign: [
     { name: "About Chris", href: "/about" },
     { name: "Issues", href: "/issues" },
-    { name: "Endorsements", href: "/endorsements" },
+    // TODO: Re-enable when real endorsements are available
+    // { name: "Endorsements", href: "/endorsements" },
     { name: "News", href: "/news" },
   ],
   getInvolved: [
     { name: "Volunteer", href: "/get-involved" },
-    { name: "Donate", href: "/donate" },
+    { name: "Donate", href: "https://secure.anedot.com/committee-to-elect-chris-parker/donate" },
     { name: "Events", href: "/events" },
     { name: "Contact", href: "/contact" },
   ],
@@ -43,12 +45,12 @@ export const campaignInfo = {
   electionDate: "November 3, 2026",
   earlyVoting: "October 15 - October 31, 2026",
   email: "info@electchrisparker.org",
-  phone: "(336) 555-0123",
+  phone: "(336) 306-6273",
   address: {
-    street: "123 Main Street, Suite 100",
-    city: "Winston-Salem",
+    street: "P.O. Box 121",
+    city: "Pfafftown",
     state: "NC",
-    zip: "27101",
+    zip: "27040",
   },
   paidFor: "Paid for by the Committee to Elect Chris Parker",
 }

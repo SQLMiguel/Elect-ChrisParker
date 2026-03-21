@@ -67,11 +67,10 @@ export const issues: Issue[] = [
   {
     id: "infrastructure",
     title: "Infrastructure",
-    shortDescription: "Investing in roads, water systems, and broadband to support growth and quality of life.",
-    fullDescription: "Quality infrastructure is essential for economic growth and quality of life. I will prioritize maintaining and improving our roads, ensuring reliable water and sewer services, and expanding broadband access to underserved areas. Smart infrastructure investments today will pay dividends for generations.",
+    shortDescription: "Investing in water systems and broadband to support growth and quality of life.",
+    fullDescription: "Quality infrastructure is essential for economic growth and quality of life. I will prioritize ensuring reliable water and sewer services and expanding broadband access to underserved areas. Smart infrastructure investments today will pay dividends for generations.",
     icon: "building",
     priorities: [
-      "Maintain and improve county roads and bridges",
       "Expand water and sewer infrastructure for growth",
       "Bring high-speed internet to rural areas",
       "Plan for sustainable long-term growth",

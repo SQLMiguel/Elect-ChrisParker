@@ -27,8 +27,7 @@ const whyDonate = [
 ]
 
 export default function DonatePage() {
-  // In production, this would be the actual Anedot donation page URL
-  const anedotUrl = "https://secure.anedot.com/electchrisparker"
+  const anedotUrl = "https://secure.anedot.com/committee-to-elect-chris-parker/donate"
 
   return (
     <>

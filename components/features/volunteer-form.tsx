@@ -1,11 +1,22 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
-import { CheckCircle } from "lucide-react"
+import { CheckCircle, AlertCircle } from "lucide-react"
+import { submitVolunteer } from "@/lib/actions/volunteers"
+import {
+  formatPhoneNumber,
+  isValidPhone,
+  isValidEmail,
+  isValidZip,
+  formatZipCode,
+  phoneErrorMessage,
+  emailErrorMessage,
+  zipErrorMessage,
+} from "@/lib/validation"
 
 const volunteerOptions = [
   { id: "door-knocking", label: "Door Knocking" },
@@ -20,7 +31,46 @@ const volunteerOptions = [
 
 export function VolunteerForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const [selectedOptions, setSelectedOptions] = useState<string[]>([])
+  const [touched, setTouched] = useState<Record<string, boolean>>({})
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    address: '',
+    city: '',
+    state: 'NC',
+    zip: '',
+    comments: '',
+  })
+
+  const handleBlur = useCallback((field: string) => {
+    setTouched((prev) => ({ ...prev, [field]: true }))
+  }, [])
+
+  const handlePhoneChange = useCallback((value: string) => {
+    setFormData((prev) => ({ ...prev, phone: formatPhoneNumber(value) }))
+  }, [])
+
+  const handleZipChange = useCallback((value: string) => {
+    setFormData((prev) => ({ ...prev, zip: formatZipCode(value) }))
+  }, [])
+
+  // Validation state
+  const phoneError = touched.phone ? phoneErrorMessage(formData.phone) : null
+  const emailError = touched.email ? emailErrorMessage(formData.email) : null
+  const zipError = touched.zip ? zipErrorMessage(formData.zip) : null
+
+  const isFormValid =
+    formData.firstName.trim() !== '' &&
+    formData.lastName.trim() !== '' &&
+    formData.email.trim() !== '' &&
+    isValidEmail(formData.email) &&
+    isValidPhone(formData.phone) &&
+    isValidZip(formData.zip)
 
   const handleOptionToggle = (optionId: string) => {
     setSelectedOptions((prev) =>
@@ -30,10 +80,32 @@ export function VolunteerForm() {
     )
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // In production, this would submit to a server or email service
-    setSubmitted(true)
+    setIsLoading(true)
+    setError(null)
+
+    try {
+      const result = await submitVolunteer({
+        ...formData,
+        volunteerOptions: selectedOptions,
+      })
+
+      if (result.success) {
+        setSubmitted(true)
+        setFormData({
+          firstName: '', lastName: '', email: '', phone: '',
+          address: '', city: '', state: 'NC', zip: '', comments: '',
+        })
+        setSelectedOptions([])
+      } else {
+        setError(result.error || 'Failed to submit. Please try again.')
+      }
+    } catch {
+      setError('An error occurred. Please try again.')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   if (submitted) {
@@ -65,45 +137,84 @@ export function VolunteerForm() {
         Fill out the form below and we will be in touch with opportunities to help.
       </p>
 
+      {error && (
+        <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-3 flex items-start gap-2">
+          <AlertCircle className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
+          <p className="text-sm text-red-700">{error}</p>
+        </div>
+      )}
+
       <div className="mt-6 space-y-4">
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-2">
             <Label htmlFor="firstName">First Name *</Label>
-            <Input id="firstName" name="firstName" required />
+            <Input id="firstName" name="firstName" required value={formData.firstName} onChange={(e) => setFormData({ ...formData, firstName: e.target.value })} disabled={isLoading} />
           </div>
           <div className="space-y-2">
             <Label htmlFor="lastName">Last Name *</Label>
-            <Input id="lastName" name="lastName" required />
+            <Input id="lastName" name="lastName" required value={formData.lastName} onChange={(e) => setFormData({ ...formData, lastName: e.target.value })} disabled={isLoading} />
           </div>
         </div>
 
         <div className="space-y-2">
           <Label htmlFor="email">Email Address *</Label>
-          <Input id="email" name="email" type="email" required />
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            required
+            value={formData.email}
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            onBlur={() => handleBlur('email')}
+            disabled={isLoading}
+            className={emailError ? 'border-red-500 focus:ring-red-500' : ''}
+          />
+          {emailError && <p className="text-xs text-red-600">{emailError}</p>}
         </div>
 
         <div className="space-y-2">
           <Label htmlFor="phone">Phone Number</Label>
-          <Input id="phone" name="phone" type="tel" />
+          <Input
+            id="phone"
+            name="phone"
+            type="tel"
+            value={formData.phone}
+            onChange={(e) => handlePhoneChange(e.target.value)}
+            onBlur={() => handleBlur('phone')}
+            disabled={isLoading}
+            placeholder="(336) 555-1234"
+            className={phoneError ? 'border-red-500 focus:ring-red-500' : ''}
+          />
+          {phoneError && <p className="text-xs text-red-600">{phoneError}</p>}
         </div>
 
         <div className="space-y-2">
           <Label htmlFor="address">Street Address</Label>
-          <Input id="address" name="address" />
+          <Input id="address" name="address" value={formData.address} onChange={(e) => setFormData({ ...formData, address: e.target.value })} disabled={isLoading} />
         </div>
 
         <div className="grid gap-4 sm:grid-cols-3">
           <div className="space-y-2">
             <Label htmlFor="city">City</Label>
-            <Input id="city" name="city" />
+            <Input id="city" name="city" value={formData.city} onChange={(e) => setFormData({ ...formData, city: e.target.value })} disabled={isLoading} />
           </div>
           <div className="space-y-2">
             <Label htmlFor="state">State</Label>
-            <Input id="state" name="state" defaultValue="NC" />
+            <Input id="state" name="state" value={formData.state} onChange={(e) => setFormData({ ...formData, state: e.target.value })} disabled={isLoading} />
           </div>
           <div className="space-y-2">
             <Label htmlFor="zip">ZIP Code</Label>
-            <Input id="zip" name="zip" />
+            <Input
+              id="zip"
+              name="zip"
+              value={formData.zip}
+              onChange={(e) => handleZipChange(e.target.value)}
+              onBlur={() => handleBlur('zip')}
+              disabled={isLoading}
+              placeholder="27040"
+              className={zipError ? 'border-red-500 focus:ring-red-500' : ''}
+            />
+            {zipError && <p className="text-xs text-red-600">{zipError}</p>}
           </div>
         </div>
 
@@ -136,12 +247,15 @@ export function VolunteerForm() {
             rows={3}
             className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
             placeholder="Tell us about any special skills, availability, or other ways you'd like to help..."
+            value={formData.comments}
+            onChange={(e) => setFormData({ ...formData, comments: e.target.value })}
+            disabled={isLoading}
           />
         </div>
       </div>
 
-      <Button type="submit" className="mt-6 w-full bg-accent hover:bg-accent/90 text-accent-foreground">
-        Sign Up to Volunteer
+      <Button type="submit" className="mt-6 w-full bg-accent hover:bg-accent/90 text-accent-foreground" disabled={isLoading || !isFormValid}>
+        {isLoading ? 'Submitting...' : 'Sign Up to Volunteer'}
       </Button>
 
       <p className="mt-4 text-xs text-muted-foreground text-center">

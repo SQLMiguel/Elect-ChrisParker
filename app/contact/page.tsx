@@ -153,7 +153,7 @@ export default function ContactPage() {
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">Ready to donate?</span>
                     <Button asChild variant="link" size="sm" className="h-auto p-0">
-                      <Link href="/donate">Contribute</Link>
+                      <a href="https://secure.anedot.com/committee-to-elect-chris-parker/donate" target="_blank" rel="noopener noreferrer">Contribute</a>
                     </Button>
                   </div>
                   <div className="flex items-center justify-between">

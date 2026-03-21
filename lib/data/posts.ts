@@ -39,54 +39,40 @@ Chris Parker`,
     category: "announcement",
     featured: true,
   },
-  {
-    slug: "sheriff-johnson-endorsement",
-    title: "Sheriff Robert Johnson Endorses Chris Parker",
-    excerpt: "Forsyth County Sheriff Robert Johnson announces his endorsement of Chris Parker for County Commissioner.",
-    content: `I am proud to announce that Sheriff Robert Johnson has endorsed my campaign for Forsyth County Commissioner.
-
-Sheriff Johnson stated: "I've worked with Chris Parker on public safety initiatives for years. He's a true supporter of law enforcement and keeping our community safe. Chris understands that our deputies and first responders need the resources and support to do their jobs effectively. I'm confident he will be a strong voice for public safety on the County Commission."
-
-I am deeply honored to receive Sheriff Johnson's endorsement. Public safety is one of my top priorities, and I will always stand with the men and women who protect our community.
-
-Together, we will ensure that Forsyth County remains a safe place for our families.`,
-    date: "March 10, 2026",
-    author: "Campaign Staff",
-    category: "endorsement",
-    featured: true,
-  },
-  {
-    slug: "campaign-kickoff-announcement",
-    title: "Join Us for the Campaign Kickoff Rally - April 15th",
-    excerpt: "Mark your calendars! The official campaign kickoff rally will be held at Hanes Park Pavilion on April 15th.",
-    image: "/images/campaign-kickoff-rally.jpg",
-    content: `We are excited to announce the official campaign kickoff rally!
-
-**When:** April 15, 2026, 6:00 PM - 8:00 PM
-**Where:** Hanes Park Pavilion, 1101 Northwest Boulevard, Winston-Salem
-
-Join us for an evening of food, music, and fellowship as we officially launch the campaign to elect Chris Parker as your next Forsyth County Commissioner.
-
-You'll have the opportunity to:
-- Hear Chris's vision for Forsyth County
-- Meet fellow supporters and neighbors
-- Sign up to volunteer
-- Pick up yard signs and campaign materials
-
-This event is free and open to all. Bring your family, friends, and neighbors!
-
-Can't make it but still want to help? Visit our Get Involved page to learn about other ways to support the campaign.
-
-We hope to see you there!`,
-    date: "March 15, 2026",
-    author: "Campaign Staff",
-    category: "event",
-    featured: false,
-  },
+  // TODO: Re-enable Campaign Kickoff Rally post when ready
+  // {
+  //   slug: "campaign-kickoff-announcement",
+  //   title: "Join Us for the Campaign Kickoff Rally - April 15th",
+  //   excerpt: "Mark your calendars! The official campaign kickoff rally will be held at Hanes Park Pavilion on April 15th.",
+  //   image: "/images/campaign-kickoff-rally.jpg",
+  //   content: `We are excited to announce the official campaign kickoff rally!
+  //
+  //   **When:** April 15, 2026, 6:00 PM - 8:00 PM
+  //   **Where:** Hanes Park Pavilion, 1101 Northwest Boulevard, Winston-Salem
+  //
+  //   Join us for an evening of food, music, and fellowship as we officially launch the campaign to elect Chris Parker as your next Forsyth County Commissioner.
+  //
+  //   You'll have the opportunity to:
+  //   - Hear Chris's vision for Forsyth County
+  //   - Meet fellow supporters and neighbors
+  //   - Sign up to volunteer
+  //   - Pick up yard signs and campaign materials
+  //
+  //   This event is free and open to all. Bring your family, friends, and neighbors!
+  //
+  //   Can't make it but still want to help? Visit our Get Involved page to learn about other ways to support the campaign.
+  //
+  //   We hope to see you there!`,
+  //   date: "March 15, 2026",
+  //   author: "Campaign Staff",
+  //   category: "event",
+  //   featured: false,
+  // },
   {
     slug: "economic-development-plan",
     title: "Chris Parker Releases Economic Development Plan",
     excerpt: "Campaign unveils comprehensive plan to attract jobs and grow the economy in Forsyth County.",
+    image: "/images/economic-development-plan_v2.png",
     content: `Today, I am releasing my comprehensive plan for economic development in Forsyth County.
 
 Our county has tremendous potential, but we must be proactive in creating an environment where businesses can thrive and create good-paying jobs for our residents.
@@ -103,7 +89,7 @@ I will advocate for partnerships between the county, community colleges, and loc
 Small businesses are the backbone of our economy. I will push for programs that help entrepreneurs start and grow their businesses in Forsyth County.
 
 **4. Infrastructure Investment**
-Modern infrastructure—including roads, utilities, and broadband—is essential for economic growth. I will prioritize investments that support sustainable development.
+Modern infrastructure—including utilities and broadband—is essential for economic growth. I will prioritize investments that support sustainable development.
 
 **5. Attract New Industries**
 While supporting our existing businesses, we must also work to attract new industries that provide diverse employment opportunities for our residents.

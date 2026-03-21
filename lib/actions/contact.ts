@@ -2,32 +2,28 @@
 
 import { createClient } from '@/lib/supabase/server'
 import { sendFormNotification } from './notifications'
-import { addToConstantContact } from './constant-contact'
 
-export async function subscribeSupporters(formData: {
+export async function submitContactMessage(formData: {
   firstName: string
   lastName: string
   email: string
   phone: string
-  zipCode: string
-  smsOptIn: boolean
-  emailOptIn: boolean
+  subject: string
+  message: string
 }) {
   try {
     const supabase = await createClient()
 
     const { data, error } = await supabase
-      .from('supporters')
+      .from('contact_messages')
       .insert([
         {
           first_name: formData.firstName,
           last_name: formData.lastName,
           email: formData.email,
           phone: formData.phone,
-          zip_code: formData.zipCode,
-          sms_opt_in: formData.smsOptIn,
-          email_opt_in: formData.emailOptIn,
-          subscribed_at: new Date().toISOString(),
+          subject: formData.subject,
+          message: formData.message,
         },
       ])
       .select()
@@ -38,26 +34,16 @@ export async function subscribeSupporters(formData: {
 
     // Send email notification (non-blocking)
     sendFormNotification({
-      subject: `New Supporter Signup: ${formData.firstName} ${formData.lastName}`,
-      formType: 'Campaign Updates Signup',
+      subject: `New Contact Message: ${formData.subject} — ${formData.firstName} ${formData.lastName}`,
+      formType: 'Contact Form',
       fields: {
         'First Name': formData.firstName,
         'Last Name': formData.lastName,
         'Email': formData.email,
         'Phone': formData.phone,
-        'ZIP Code': formData.zipCode,
-        'SMS Opt-In': formData.smsOptIn,
-        'Email Opt-In': formData.emailOptIn,
+        'Subject': formData.subject,
+        'Message': formData.message,
       },
-    }).catch(console.error)
-
-    // Add to Constant Contact mailing list (non-blocking)
-    addToConstantContact({
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      email: formData.email,
-      phone: formData.phone,
-      zipCode: formData.zipCode,
     }).catch(console.error)
 
     return { success: true, data }

@@ -1,16 +1,27 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
 import { subscribeSupporters } from '@/lib/actions/supporters'
 import { CheckCircle2, AlertCircle } from 'lucide-react'
+import {
+  formatPhoneNumber,
+  isValidPhone,
+  isValidEmail,
+  isValidZip,
+  formatZipCode,
+  phoneErrorMessage,
+  emailErrorMessage,
+  zipErrorMessage,
+} from '@/lib/validation'
 
 export function UpdatesSignupForm() {
   const [isLoading, setIsLoading] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [touched, setTouched] = useState<Record<string, boolean>>({})
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -51,6 +62,30 @@ export function UpdatesSignupForm() {
       setIsLoading(false)
     }
   }
+
+  const handleBlur = useCallback((field: string) => {
+    setTouched((prev) => ({ ...prev, [field]: true }))
+  }, [])
+
+  const handlePhoneChange = useCallback((value: string) => {
+    setFormData((prev) => ({ ...prev, phone: formatPhoneNumber(value) }))
+  }, [])
+
+  const handleZipChange = useCallback((value: string) => {
+    setFormData((prev) => ({ ...prev, zipCode: formatZipCode(value) }))
+  }, [])
+
+  const phoneError = touched.phone ? phoneErrorMessage(formData.phone) : null
+  const emailError = touched.email ? emailErrorMessage(formData.email) : null
+  const zipError = touched.zipCode ? zipErrorMessage(formData.zipCode) : null
+
+  const isFormValid =
+    formData.firstName.trim() !== '' &&
+    formData.lastName.trim() !== '' &&
+    formData.email.trim() !== '' &&
+    isValidEmail(formData.email) &&
+    isValidPhone(formData.phone) &&
+    isValidZip(formData.zipCode)
 
   if (submitted) {
     return (
@@ -97,24 +132,37 @@ export function UpdatesSignupForm() {
         placeholder="Email Address"
         value={formData.email}
         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+        onBlur={() => handleBlur('email')}
         required
         disabled={isLoading}
+        className={emailError ? 'border-red-500 focus:ring-red-500' : ''}
       />
+      {emailError && <p className="text-xs text-red-600">{emailError}</p>}
 
-      <Input
-        type="tel"
-        placeholder="Phone Number"
-        value={formData.phone}
-        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-        disabled={isLoading}
-      />
+      <div>
+        <Input
+          type="tel"
+          placeholder="Phone Number"
+          value={formData.phone}
+          onChange={(e) => handlePhoneChange(e.target.value)}
+          onBlur={() => handleBlur('phone')}
+          disabled={isLoading}
+          className={phoneError ? 'border-red-500 focus:ring-red-500' : ''}
+        />
+        {phoneError && <p className="text-xs text-red-600">{phoneError}</p>}
+      </div>
 
-      <Input
-        placeholder="Zip Code"
-        value={formData.zipCode}
-        onChange={(e) => setFormData({ ...formData, zipCode: e.target.value })}
-        disabled={isLoading}
-      />
+      <div>
+        <Input
+          placeholder="Zip Code"
+          value={formData.zipCode}
+          onChange={(e) => handleZipChange(e.target.value)}
+          onBlur={() => handleBlur('zipCode')}
+          disabled={isLoading}
+          className={zipError ? 'border-red-500 focus:ring-red-500' : ''}
+        />
+        {zipError && <p className="text-xs text-red-600">{zipError}</p>}
+      </div>
 
       <div className="space-y-3">
         <div className="flex items-center space-x-2">
@@ -128,7 +176,7 @@ export function UpdatesSignupForm() {
           />
           <label
             htmlFor="sms-opt-in"
-            className="text-sm cursor-pointer font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-foreground"
+            className="text-sm cursor-pointer font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
           >
             Yes, send me SMS campaign updates
           </label>
@@ -145,7 +193,7 @@ export function UpdatesSignupForm() {
           />
           <label
             htmlFor="email-opt-in"
-            className="text-sm cursor-pointer font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-foreground"
+            className="text-sm cursor-pointer font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
           >
             Yes, send me email campaign updates
           </label>
@@ -155,12 +203,12 @@ export function UpdatesSignupForm() {
       <Button
         type="submit"
         className="w-full"
-        disabled={isLoading}
+        disabled={isLoading || !isFormValid}
       >
         {isLoading ? 'Subscribing...' : 'Sign Up for Updates'}
       </Button>
 
-      <p className="text-xs text-muted-foreground text-center">
+      <p className="text-xs text-center opacity-70">
         We respect your privacy. Unsubscribe at any time.
       </p>
     </form>

@@ -1,46 +1,16 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Calendar, Clock, MapPin, Users, Mic, Heart, PartyPopper, MessageSquare, ArrowRight } from "lucide-react"
+import { Calendar } from "lucide-react"
 import { events } from "@/lib/data/events"
+import { EventsList } from "@/components/features/events-list"
 
 export const metadata: Metadata = {
   title: "Events",
   description: "Attend a campaign event and meet Chris Parker in person. Rallies, town halls, fundraisers, and more.",
 }
 
-const eventTypeIcons: Record<string, React.ComponentType<{ className?: string }>> = {
-  rally: PartyPopper,
-  townhall: MessageSquare,
-  fundraiser: Heart,
-  volunteer: Users,
-  debate: Mic,
-  "meet-greet": Users,
-}
-
-const eventTypeColors: Record<string, string> = {
-  rally: "bg-accent/10 text-accent border-accent/20",
-  townhall: "bg-blue-100 text-blue-800 border-blue-200",
-  fundraiser: "bg-purple-100 text-purple-800 border-purple-200",
-  volunteer: "bg-green-100 text-green-800 border-green-200",
-  debate: "bg-orange-100 text-orange-800 border-orange-200",
-  "meet-greet": "bg-primary/10 text-primary border-primary/20",
-}
-
-const eventTypeLabels: Record<string, string> = {
-  rally: "Rally",
-  townhall: "Town Hall",
-  fundraiser: "Fundraiser",
-  volunteer: "Volunteer Event",
-  debate: "Debate/Forum",
-  "meet-greet": "Meet & Greet",
-}
-
 export default function EventsPage() {
-  const upcomingEvents = events.filter((e) => !e.isPast)
-  const pastEvents = events.filter((e) => e.isPast)
-
   return (
     <>
       {/* Hero Section */}
@@ -66,130 +36,9 @@ export default function EventsPage() {
         </div>
       </section>
 
-      {/* Event Type Filter */}
-      <section className="sticky top-[73px] z-40 bg-background border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <nav className="flex gap-2 py-4 overflow-x-auto">
-            <span className="shrink-0 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground">
-              All Events
-            </span>
-            {Object.entries(eventTypeLabels).map(([key, label]) => (
-              <span
-                key={key}
-                className={`shrink-0 rounded-full border px-4 py-2 text-sm font-medium ${eventTypeColors[key]}`}
-              >
-                {label}
-              </span>
-            ))}
-          </nav>
-        </div>
-      </section>
+      <EventsList events={events} />
 
-      {/* Upcoming Events */}
-      <section id="upcoming" className="py-16 lg:py-24 bg-background scroll-mt-32">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <h2 className="text-2xl font-bold text-foreground mb-8">Upcoming Events</h2>
-
-          {upcomingEvents.length > 0 ? (
-            <div className="space-y-6">
-              {upcomingEvents.map((event) => {
-                const Icon = eventTypeIcons[event.type] || Calendar
-                return (
-                  <div
-                    key={event.id}
-                    className="rounded-xl border border-border bg-card shadow-sm hover:shadow-md transition-shadow overflow-hidden"
-                  >
-                    {/* Event Image */}
-                    {event.image && (
-                      <div className="aspect-video w-full overflow-hidden">
-                        <Image
-                          src={event.image}
-                          alt={event.title}
-                          width={800}
-                          height={450}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    )}
-                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 p-6">
-                      <div className="flex gap-4">
-                        {/* Date Badge */}
-                        <div className="shrink-0 flex flex-col items-center justify-center rounded-lg bg-primary/10 px-4 py-3 text-center">
-                          <span className="text-2xl font-bold text-primary">
-                            {event.date.split(" ")[1]?.replace(",", "")}
-                          </span>
-                          <span className="text-sm text-primary">
-                            {event.date.split(" ")[0]}
-                          </span>
-                        </div>
-
-                        {/* Event Details */}
-                        <div>
-                          <div className="flex flex-wrap items-center gap-2">
-                            <span
-                              className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium ${eventTypeColors[event.type]}`}
-                            >
-                              <Icon className="h-3 w-3" />
-                              {eventTypeLabels[event.type]}
-                            </span>
-                          </div>
-
-                          <h3 className="mt-2 text-xl font-semibold text-foreground">
-                            {event.title}
-                          </h3>
-
-                          <div className="mt-3 space-y-2">
-                            <div className="flex items-center text-sm text-muted-foreground">
-                              <Clock className="mr-2 h-4 w-4 shrink-0" />
-                              {event.time}
-                            </div>
-                            <div className="flex items-start text-sm text-muted-foreground">
-                              <MapPin className="mr-2 h-4 w-4 shrink-0 mt-0.5" />
-                              <span>
-                                {event.location}
-                                <br />
-                                <span className="text-xs">{event.address}</span>
-                              </span>
-                            </div>
-                          </div>
-
-                          <p className="mt-4 text-muted-foreground">
-                            {event.description}
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* RSVP Button */}
-                      <div className="shrink-0">
-                        {event.rsvpLink && (
-                          <Button asChild className="w-full lg:w-auto">
-                            <Link href={event.rsvpLink}>
-                              RSVP Now
-                              <ArrowRight className="ml-2 h-4 w-4" />
-                            </Link>
-                          </Button>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          ) : (
-            <div className="rounded-xl border border-border bg-card p-12 text-center">
-              <Calendar className="mx-auto h-12 w-12 text-muted-foreground" />
-              <h3 className="mt-4 text-lg font-semibold text-foreground">No Upcoming Events</h3>
-              <p className="mt-2 text-muted-foreground">
-                Check back soon for new campaign events, or sign up to be notified.
-              </p>
-              <Button asChild className="mt-6">
-                <Link href="/get-involved">Get Notified</Link>
-              </Button>
-            </div>
-          )}
-        </div>
-      </section>
-
+      {/* Host an Event CTA */}
       {/* Host an Event CTA */}
       <section className="py-16 lg:py-24 bg-primary text-primary-foreground">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
@@ -229,30 +78,6 @@ export default function EventsPage() {
           </div>
         </div>
       </section>
-
-      {/* Past Events */}
-      {pastEvents.length > 0 && (
-        <section className="py-16 lg:py-24 bg-secondary">
-          <div className="mx-auto max-w-7xl px-4 lg:px-8">
-            <h2 className="text-2xl font-bold text-foreground mb-8">Past Events</h2>
-
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {pastEvents.map((event) => (
-                <div
-                  key={event.id}
-                  className="rounded-xl border border-border bg-card p-5 opacity-75"
-                >
-                  <span className="text-xs text-muted-foreground">{event.date}</span>
-                  <h3 className="mt-2 font-semibold text-foreground">{event.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
-                    {event.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Add to Calendar Info */}
       <section className="py-16 lg:py-24 bg-background">

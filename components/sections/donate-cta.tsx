@@ -42,9 +42,9 @@ export function DonateCTA() {
                     className="h-14 text-lg font-semibold"
                     asChild
                   >
-                    <Link href={`/donate?amount=${amount.replace('$', '')}`}>
+                    <a href="https://secure.anedot.com/committee-to-elect-chris-parker/donate" target="_blank" rel="noopener noreferrer">
                       {amount}
-                    </Link>
+                    </a>
                   </Button>
                 ))}
                 <Button
@@ -52,7 +52,7 @@ export function DonateCTA() {
                   className="h-14 text-lg font-semibold"
                   asChild
                 >
-                  <Link href="/donate">Other</Link>
+                  <a href="https://secure.anedot.com/committee-to-elect-chris-parker/donate" target="_blank" rel="noopener noreferrer">Other</a>
                 </Button>
               </div>
               <Button
@@ -60,7 +60,7 @@ export function DonateCTA() {
                 size="lg"
                 className="mt-6 w-full bg-accent hover:bg-accent/90 text-accent-foreground"
               >
-                <Link href="/donate">Donate Now</Link>
+                <a href="https://secure.anedot.com/committee-to-elect-chris-parker/donate" target="_blank" rel="noopener noreferrer">Donate Now</a>
               </Button>
               <p className="mt-4 text-center text-xs text-muted-foreground">
                 Contributions are not tax deductible. Federal law requires us to use our 

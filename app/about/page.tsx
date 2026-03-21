@@ -9,39 +9,6 @@ export const metadata: Metadata = {
   description: "Learn about Chris Parker, candidate for Forsyth County Commissioner District B. A lifelong North Carolinian, business leader, and community advocate.",
 }
 
-const timeline = [
-  {
-    year: "1978",
-    title: "Born in North Carolina",
-    description: "Chris was born and raised in a small town in North Carolina, learning the values of hard work and community from his parents.",
-  },
-  {
-    year: "2000",
-    title: "Graduated from NC State",
-    description: "Earned a degree in Business Administration, with a focus on finance and management.",
-  },
-  {
-    year: "2003",
-    title: "Moved to Forsyth County",
-    description: "Settled in Winston-Salem with his wife, ready to build a life and career in Forsyth County.",
-  },
-  {
-    year: "2008",
-    title: "Started His Business",
-    description: "Founded a successful small business that has created jobs and served the community for over 15 years.",
-  },
-  {
-    year: "2012",
-    title: "Community Leadership",
-    description: "Began serving on local boards and commissions, gaining valuable experience in local government.",
-  },
-  {
-    year: "2026",
-    title: "Running for Commissioner",
-    description: "Announced candidacy for Forsyth County Commissioner District B to bring his experience and vision to county government.",
-  },
-]
-
 const values = [
   {
     icon: Briefcase,
@@ -153,45 +120,45 @@ export default function AboutPage() {
               </h2>
               <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Chris Parker was born and raised in a small town in North Carolina, where he 
-                  learned the values of hard work, faith, and community from his parents. His 
-                  father worked in a local manufacturing plant for over 30 years, and his mother 
-                  was a schoolteacher who instilled in Chris a love of learning and service.
+                  Forsyth County became home in 1994, when my fiancée, Heather, first brought 
+                  me here while we were working on a consulting project together in Chattanooga, 
+                  Tennessee. Not long after, I chose to shift from consulting into a role where 
+                  service and community would be at the center of my work—joining Vienna Village 
+                  Assisted Living, a third generation family-owned business that has supported 
+                  local families for more than 60 years.
                 </p>
                 <p>
-                  After graduating from NC State University with a degree in Business Administration, 
-                  Chris moved to Forsyth County in 2003. He quickly fell in love with the community 
-                  and knew he had found his home. He met his wife, Sarah, at church shortly after 
-                  moving to the area, and they have been married for over 20 years. Together, they 
-                  have three children who attend local schools.
+                  For over three decades, our team at Vienna Village has helped hundreds of 
+                  residents age with dignity and provided peace of mind to their families. 
+                  Operating a small business with 90 residents and over 80 staff has required 
+                  hands on leadership, financial discipline, and a deep sense of 
+                  responsibility—skills that mirror what effective county leadership demands.
                 </p>
                 <p>
-                  In 2008, Chris took a leap of faith and started his own business. What began as 
-                  a small operation has grown into a successful company that employs dozens of local 
-                  residents. Chris is proud of the jobs he has created and the positive impact his 
-                  business has had on the local economy.
+                  Beyond his business, Chris has always believed in giving back. He has served 
+                  on numerous local boards and commissions, volunteered with youth programs, and 
+                  been an active member of his church. These experiences have given him a deep 
+                  understanding of the challenges and opportunities facing Forsyth County.
                 </p>
                 <p>
-                  Beyond his business, Chris has always believed in giving back. He has served on 
-                  numerous local boards and commissions, volunteered with youth programs, and been 
-                  an active member of his church. These experiences have given him a deep understanding 
-                  of the challenges and opportunities facing Forsyth County.
-                </p>
-                <p>
-                  Now, Chris is ready to bring his experience, values, and vision to the Forsyth County 
-                  Board of Commissioners. He believes in common-sense solutions, fiscal responsibility, 
-                  and putting people over politics. He is not running to be a career politician—he is 
-                  running to serve his community.
+                  Now, Chris is ready to bring his experience, values, and vision to the Forsyth 
+                  County Board of Commissioners. He believes in common-sense solutions, fiscal 
+                  responsibility, and putting people over politics. He is not running to be a 
+                  career politician—he is running to serve his community.
                 </p>
               </div>
             </div>
 
-            {/* Family photo placeholder */}
+            {/* Family photo */}
             <div className="space-y-6">
               <div className="aspect-video overflow-hidden rounded-2xl bg-muted shadow-lg">
-                <div className="h-full flex items-center justify-center bg-gradient-to-br from-primary/5 to-accent/5">
-                  <p className="text-muted-foreground text-sm">Family photo placeholder</p>
-                </div>
+                <Image
+                  src="/images/CroppedFamilyPhoto.jpg"
+                  alt="Chris Parker and family"
+                  width={800}
+                  height={450}
+                  className="h-full w-full object-cover"
+                />
               </div>
               
               <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
@@ -199,19 +166,19 @@ export default function AboutPage() {
                 <ul className="mt-4 space-y-3">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-                    <span className="text-sm text-muted-foreground">Married to Sarah for 20+ years</span>
+                    <span className="text-sm text-muted-foreground">Forsyth County resident since 1994</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-                    <span className="text-sm text-muted-foreground">Father of three children</span>
+                    <span className="text-sm text-muted-foreground">Married to Heather</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-                    <span className="text-sm text-muted-foreground">NC State University graduate</span>
+                    <span className="text-sm text-muted-foreground">Operates Vienna Village Assisted Living — 90 residents, 80+ staff</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-                    <span className="text-sm text-muted-foreground">Small business owner for 15+ years</span>
+                    <span className="text-sm text-muted-foreground">30+ years in senior care and small business leadership</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-accent shrink-0 mt-0.5" />
@@ -222,52 +189,6 @@ export default function AboutPage() {
                     <span className="text-sm text-muted-foreground">Served on local boards and commissions</span>
                   </li>
                 </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline Section */}
-      <section className="py-16 lg:py-24 bg-background">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-accent">
-              Chris&apos;s Journey
-            </h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              A Life of Service
-            </p>
-          </div>
-
-          <div className="mt-12 max-w-3xl mx-auto">
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-4 top-0 h-full w-0.5 bg-border md:left-1/2 md:-translate-x-px" />
-
-              <div className="space-y-8">
-                {timeline.map((item, index) => (
-                  <div
-                    key={item.year}
-                    className={`relative flex items-start gap-6 md:gap-0 ${
-                      index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                    }`}
-                  >
-                    {/* Timeline dot */}
-                    <div className="absolute left-4 flex h-8 w-8 items-center justify-center rounded-full border-4 border-background bg-primary text-xs font-bold text-primary-foreground md:left-1/2 md:-translate-x-1/2">
-                      {index + 1}
-                    </div>
-
-                    {/* Content */}
-                    <div className={`ml-16 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
-                      <div className="rounded-xl border border-border bg-card p-4 shadow-sm">
-                        <span className="text-sm font-semibold text-accent">{item.year}</span>
-                        <h3 className="mt-1 font-semibold text-foreground">{item.title}</h3>
-                        <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
@@ -286,9 +207,9 @@ export default function AboutPage() {
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-              <Link href="/donate">Support the Campaign</Link>
+              <a href="https://secure.anedot.com/committee-to-elect-chris-parker/donate" target="_blank" rel="noopener noreferrer">Support the Campaign</a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+            <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
               <Link href="/get-involved">Volunteer Today</Link>
             </Button>
           </div>

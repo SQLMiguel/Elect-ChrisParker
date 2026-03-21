@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   description: 'Elect Chris Parker for Forsyth County Commissioner District B. Leadership for Forsyth\'s Future - Economic Development, Public Safety, Fiscal Responsibility.',
   keywords: ['Chris Parker', 'Forsyth County', 'Commissioner', 'District B', 'North Carolina', 'Election', 'Winston-Salem'],
   authors: [{ name: 'Committee to Elect Chris Parker' }],
+  icons: {
+    icon: '/images/logo.jpg',
+    shortcut: '/images/logo.jpg',
+    apple: '/images/logo.jpg',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',

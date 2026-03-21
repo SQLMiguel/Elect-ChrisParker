@@ -65,7 +65,7 @@ export function Header() {
             </Link>
           </Button>
           <Button asChild size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-            <Link href="/donate">Donate</Link>
+            <a href="https://secure.anedot.com/committee-to-elect-chris-parker/donate" target="_blank" rel="noopener noreferrer">Donate</a>
           </Button>
         </div>
       </nav>
@@ -136,9 +136,9 @@ export function Header() {
                   </Link>
                 </Button>
                 <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
-                  <Link href="/donate" onClick={() => setMobileMenuOpen(false)}>
+                  <a href="https://secure.anedot.com/committee-to-elect-chris-parker/donate" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
                     Donate
-                  </Link>
+                  </a>
                 </Button>
               </div>
             </div>

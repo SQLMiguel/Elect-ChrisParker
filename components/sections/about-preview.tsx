@@ -46,16 +46,20 @@ export function AboutPreview() {
               A Leader Who Listens
             </p>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-              Born and raised in North Carolina, Chris Parker has called Forsyth County home 
-              for over two decades. As a successful business owner, devoted husband and father, 
-              and active community volunteer, Chris understands the challenges and opportunities 
-              facing our county.
+              Chris Parker was born in Alabama and has proudly called Forsyth County, North
+              Carolina home since 1995. Having lived and worked in the community for three
+              decades, Chris has built a life centered around service, family, and local
+              engagement.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Chris believes in common-sense solutions, fiscal responsibility, and putting 
-              people over politics. He&apos;s not running to be a career politician—he&apos;s 
-              running to serve his community and make Forsyth County an even better place 
-              to live, work, and raise a family.
+              As a successful business owner, devoted husband and father, and active community
+              volunteer, Chris understands the challenges and opportunities facing our county.
+            </p>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Chris believes in common-sense solutions, fiscal responsibility, and putting
+              people over politics. He&apos;s not running to be a career politician—he&apos;s
+              running to serve his community and make Forsyth County an even better place to
+              live, work, and raise a family.
             </p>
 
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">

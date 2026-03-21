@@ -18,14 +18,6 @@ export const endorsements: Endorsement[] = [
     featured: true,
   },
   {
-    id: "2",
-    name: "Sheriff Robert Johnson",
-    title: "Forsyth County Sheriff",
-    quote: "I've worked with Chris on public safety initiatives for years. He's a true supporter of law enforcement and keeping our community safe.",
-    category: "elected",
-    featured: true,
-  },
-  {
     id: "3",
     name: "Forsyth County Farm Bureau",
     title: "Agricultural Organization",

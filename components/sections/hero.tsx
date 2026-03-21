@@ -41,10 +41,10 @@ export function Hero() {
             
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-                <Link href="/donate">
+                <a href="https://secure.anedot.com/committee-to-elect-chris-parker/donate" target="_blank" rel="noopener noreferrer">
                   Donate Now
                   <ChevronRight className="ml-2 h-4 w-4" />
-                </Link>
+                </a>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link href="/get-involved">
@@ -53,15 +53,17 @@ export function Hero() {
               </Button>
             </div>
             
-            <div className="mt-10 grid grid-cols-3 gap-4 border-t border-border pt-8">
+            <div className="mt-10 grid grid-cols-2 gap-4 border-t border-border pt-8">
               <div>
                 <p className="text-3xl font-bold text-primary">20+</p>
                 <p className="text-sm text-muted-foreground">Years in Forsyth County</p>
               </div>
+              {/* TODO: Re-enable when real endorsements are available
               <div>
                 <p className="text-3xl font-bold text-primary">100+</p>
                 <p className="text-sm text-muted-foreground">Community Endorsements</p>
               </div>
+              */}
               <div>
                 <p className="text-3xl font-bold text-primary">1000s</p>
                 <p className="text-sm text-muted-foreground">Volunteer Hours</p>

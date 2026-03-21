@@ -44,10 +44,10 @@ const volunteerWays = [
 ]
 
 const impactStats = [
-  { number: "10,000+", label: "Doors Knocked" },
-  { number: "500+", label: "Yard Signs Placed" },
-  { number: "200+", label: "Active Volunteers" },
-  { number: "50+", label: "Events Hosted" },
+  { number: "10,000+", label: "Doors to Knock" },
+  { number: "500+", label: "Yard Signs to Place" },
+  { number: "200+", label: "Volunteers to Mobilize" },
+  { number: "50+", label: "Community Events to Host" },
 ]
 
 export default function GetInvolvedPage() {
@@ -62,12 +62,16 @@ export default function GetInvolvedPage() {
                 Join the <span className="text-primary">Movement</span>
               </h1>
               <p className="mt-6 text-xl text-muted-foreground leading-relaxed">
-                Campaigns are won by people like you. Whether you have an hour or a week, 
-                there is a place for you on Team Parker.
+                This campaign will be powered by people like you. Whether you have an hour or a week, 
+                there&apos;s a place for you on Team Parker.
               </p>
               <p className="mt-4 text-muted-foreground leading-relaxed">
-                Every door knocked, every call made, every conversation started brings us 
-                closer to victory. Your efforts will make the difference in this race.
+                Together, we&apos;re building something bigger than a campaign—we&apos;re building a 
+                movement. Every door knocked, every call made, and every conversation started brings 
+                us closer to victory.
+              </p>
+              <p className="mt-4 text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+                Here&apos;s what we&apos;re working toward—together:
               </p>
 
               {/* Impact Stats */}
@@ -79,6 +83,10 @@ export default function GetInvolvedPage() {
                   </div>
                 ))}
               </div>
+
+              <p className="mt-6 text-muted-foreground font-medium">
+                Be part of the effort that makes the difference.
+              </p>
             </div>
 
             {/* Volunteer Form */}
@@ -124,7 +132,7 @@ export default function GetInvolvedPage() {
                 </li>
               </ul>
             </div>
-            <div className="rounded-2xl bg-background p-8 shadow-xl">
+            <div className="rounded-2xl bg-background text-foreground p-8 shadow-xl">
               <h3 className="text-lg font-semibold text-foreground mb-1">Join Our List</h3>
               <p className="text-sm text-muted-foreground mb-6">
                 Choose how you want to stay connected with the campaign.
@@ -168,8 +176,8 @@ export default function GetInvolvedPage() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-16 lg:py-24 bg-secondary">
+      {/* TODO: Re-enable Volunteer Stories section when real testimonials are available */}
+      {/* <section className="py-16 lg:py-24 bg-secondary">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="text-sm font-semibold uppercase tracking-wider text-accent">
@@ -218,7 +226,7 @@ export default function GetInvolvedPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Other Ways to Support */}
       <section className="py-16 lg:py-24 bg-background">
@@ -237,7 +245,7 @@ export default function GetInvolvedPage() {
                 size="lg"
                 className="mt-6 bg-accent hover:bg-accent/90 text-accent-foreground"
               >
-                <Link href="/donate">Donate Now</Link>
+                <a href="https://secure.anedot.com/committee-to-elect-chris-parker/donate" target="_blank" rel="noopener noreferrer">Donate Now</a>
               </Button>
             </div>
 
