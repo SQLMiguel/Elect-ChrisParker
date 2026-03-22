@@ -169,23 +169,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map Placeholder */}
-      <section className="bg-secondary">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8 py-16">
-          <div className="aspect-[21/9] rounded-xl bg-muted overflow-hidden">
-            <div className="h-full flex items-center justify-center bg-gradient-to-br from-primary/5 to-accent/5">
-              <div className="text-center">
-                <MapPin className="mx-auto h-12 w-12 text-muted-foreground" />
-                <p className="mt-4 text-muted-foreground">Map placeholder</p>
-                <p className="text-sm text-muted-foreground">
-                  Campaign HQ: {campaignInfo.address.city}, {campaignInfo.address.state}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-16 lg:py-24 bg-primary text-primary-foreground">
         <div className="mx-auto max-w-7xl px-4 lg:px-8 text-center">
