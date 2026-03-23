@@ -1,6 +1,6 @@
 # Deploying to Vercel — Step-by-Step Guide
 
-This guide walks you through deploying the **Elect Chris Parker** campaign website to Vercel from start to finish.
+This guide walks you through deploying the **Elect Chris Parker** campaign website to Vercel from start to finish. Please update the variable names as your project changes.
 
 ---
 
