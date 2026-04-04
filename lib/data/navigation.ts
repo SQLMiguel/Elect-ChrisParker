@@ -38,10 +38,10 @@ export const socialLinks = [
 
 export const campaignInfo = {
   name: "Chris Parker",
-  position: "Forsyth County Commissioner District B",
+  position: "Forsyth County Commissioner",
   district: "District B",
   state: "North Carolina",
-  slogan: "Experience Matters for Forsyth County's Future",
+  slogan: "Leadership for Forsyth's Future",
   electionDate: "November 3, 2026",
   earlyVoting: "October 15 - October 31, 2026",
   email: "info@electchrisparker.org",

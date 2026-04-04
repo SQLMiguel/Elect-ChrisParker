@@ -13,7 +13,7 @@ const values = [
   {
     icon: Briefcase,
     title: "Fiscal Responsibility",
-    description: "As an employer in the healthcare industry, Chris knows every dollar must be spent wisely. As chair of the WS/FC Utility Commission, he has developed the ability to read and analyze large government budgets and ask tough questions.",
+    description: "As a business owner, Chris knows every dollar must be spent wisely. He will bring that same discipline to county finances.",
   },
   {
     icon: Users,
@@ -44,14 +44,15 @@ export default function AboutPage() {
                 Meet <span className="text-primary">Chris Parker</span>
               </h1>
               <p className="mt-6 text-xl text-muted-foreground leading-relaxed">
-                A successful business owner, devoted family man, and dedicated community servant.
+                A lifelong North Carolinian, successful business owner, devoted family man, 
+                and dedicated community servant.
               </p>
               <p className="mt-4 text-muted-foreground leading-relaxed">
-                For over three decades, Chris has called Forsyth County home. He has operated a 
+                For over two decades, Chris has called Forsyth County home. He has built a 
                 successful business here, raised his family here, and given back to his 
                 community through countless volunteer hours. Now, he is ready to take on a 
                 new challenge: ensuring that Forsyth County remains a great place to live, 
-                work, raise a family, and run a business for generations to come.
+                work, and raise a family for generations to come.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
@@ -165,7 +166,7 @@ export default function AboutPage() {
                 <ul className="mt-4 space-y-3">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-                    <span className="text-sm text-muted-foreground">Forsyth County resident since 1995</span>
+                    <span className="text-sm text-muted-foreground">Forsyth County resident since 1994</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-accent shrink-0 mt-0.5" />
@@ -185,7 +186,7 @@ export default function AboutPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-                    <span className="text-sm text-muted-foreground">Served on local boards and commissions, such as YMCA Northwest NC, Winston-Salem/Forsyth County Utility Commission, Forsyth Technical Community College Board of Trustees, Centers for Exceptional Children</span>
+                    <span className="text-sm text-muted-foreground">Served on local boards and commissions</span>
                   </li>
                 </ul>
               </div>
