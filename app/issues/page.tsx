@@ -19,6 +19,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 }
 
 export default function IssuesPage() {
+  console.log("[v0] Issues data:", issues);
   return (
     <>
       {/* Hero Section */}
