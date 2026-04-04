@@ -46,30 +46,17 @@ export function AboutPreview() {
               A Leader Who Listens
             </p>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-              Chris Parker was born in Alabama and has proudly called Forsyth County, North
-              Carolina home since 1995. Having lived and worked in the community for three
-              decades, Chris has built a life centered around service, family, and local
-              engagement.
+              Having lived and worked in the community for over three decades, Chris has built a life centered around service, family, and local engagement.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
               As a successful business owner, devoted husband and father, and active community
               volunteer, Chris understands the challenges and opportunities facing our county.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Chris believes in common-sense solutions, fiscal responsibility, and putting
-              people over politics. He&apos;s not running to be a career politician—he&apos;s
+              Chris believes in common-sense solutions and fiscal responsibility. He&apos;s not running to be a career politician—he&apos;s
               running to serve his community and make Forsyth County an even better place to
-              live, work, and raise a family.
+              live, work, raise a family, and run a business.
             </p>
-
-            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-              {highlights.map((item) => (
-                <li key={item} className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-accent shrink-0" />
-                  <span className="text-sm text-foreground">{item}</span>
-                </li>
-              ))}
-            </ul>
 
             <div className="mt-8">
               <Button asChild size="lg">

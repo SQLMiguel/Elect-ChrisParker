@@ -34,9 +34,7 @@ export function Hero() {
             </p>
             
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-              As a lifelong resident and business leader in Forsyth County, I&apos;m running to 
-              bring common-sense leadership to our county government. Together, we can build 
-              a stronger, safer, and more prosperous community for all.
+              As business owner and leader in Forsyth County, Chris is committed to Forsyth County being the best place to live, work, raise a family and run a business.
             </p>
             
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
@@ -55,7 +53,7 @@ export function Hero() {
             
             <div className="mt-10 grid grid-cols-2 gap-4 border-t border-border pt-8">
               <div>
-                <p className="text-3xl font-bold text-primary">20+</p>
+                <p className="text-3xl font-bold text-primary">30+</p>
                 <p className="text-sm text-muted-foreground">Years in Forsyth County</p>
               </div>
               {/* TODO: Re-enable when real endorsements are available
@@ -65,7 +63,7 @@ export function Hero() {
               </div>
               */}
               <div>
-                <p className="text-3xl font-bold text-primary">1000s</p>
+                <p className="text-3xl font-bold text-primary">10,000+</p>
                 <p className="text-sm text-muted-foreground">Volunteer Hours</p>
               </div>
             </div>

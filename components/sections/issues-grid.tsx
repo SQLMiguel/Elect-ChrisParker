@@ -13,7 +13,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 }
 
 export function IssuesGrid() {
-  const featuredIssues = issues.slice(0, 6)
+  const featuredIssues = issues.slice(0, 4)
 
   return (
     <section className="py-16 lg:py-24 bg-background">
