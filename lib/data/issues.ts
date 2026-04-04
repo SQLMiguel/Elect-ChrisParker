@@ -15,7 +15,7 @@ export const issues: Issue[] = [
     fullDescription: "As a business leader in the healthcare industry who over 80 employees,  I understand the importance of fiscal discipline. I will fight to keep taxes low while ensuring essential county services are maintained. My twelve years on the WS/FC Utility Commission, including the past two years as Chair, have enabled me to read and understand government budgets and ask the tough questions.  I will push for regular audits, transparent budgeting, and eliminating wasteful spending.",
     icon: "calculator",
     priorities: [
-      "Keep property taxes low and predictable",
+      "Fiscal Responsibility: As a business leader in the healthcare industry who over 80 employees, I understand the importance of fiscal discipline. I will fight to keep taxes low while ensuring essential county services are maintained. My twelve years on the WS/FC Utility Commission, including the past two years as Chair, have enabled me to read and understand government budgets and ask the tough questions. I will push for regular audits, transparent budgeting, and eliminating wasteful spending.",
       "Conduct regular efficiency audits of county operations",
       "Increase transparency in county spending",
       "Build adequate reserves for emergencies",
