@@ -3,7 +3,8 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { VolunteerForm } from "@/components/features/volunteer-form"
 import { UpdatesSignupForm } from "@/components/features/updates-signup-form"
-import { Home, Phone, Share2, Users, MapPin, Calendar, Heart, Megaphone, Bell } from "lucide-react"
+import { Home, Phone, Share2, Users, MapPin, Calendar, Heart, Megaphone, Bell, CheckCircle2 } from "lucide-react"
+import { SHOW_EVENTS_SECTION } from "@/lib/config/visibility"
 
 export const metadata: Metadata = {
   title: "Get Involved",
@@ -43,11 +44,27 @@ const volunteerWays = [
   },
 ]
 
-const impactStats = [
-  { number: "10,000+", label: "Doors to Knock" },
-  { number: "500+", label: "Yard Signs to Place" },
-  { number: "200+", label: "Volunteers to Mobilize" },
-  { number: "50+", label: "Community Events to Host" },
+const movementActionItems = [
+  {
+    title: "Support the Campaign",
+    description:
+      "Your contribution helps share our message with voters across District B and ensures that every voice is heard.",
+  },
+  {
+    title: "Volunteer Your Time",
+    description:
+      "Knocking on doors, making calls, hosting neighborhood gatherings — every hour makes an impact.",
+  },
+  {
+    title: "Stay Informed and Spread the Word",
+    description:
+      "Talk to friends, share updates, and help bring more people into the conversation about the future of our county.",
+  },
+  {
+    title: "Vote in the Upcoming Election",
+    description:
+      "Your vote is your voice. Together, we can elect leadership that reflects the values and priorities of our community.",
+  },
 ]
 
 export default function GetInvolvedPage() {
@@ -65,28 +82,32 @@ export default function GetInvolvedPage() {
                 This campaign will be powered by people like you. Whether you have an hour or a week, 
                 there&apos;s a place for you on Team Parker.
               </p>
-              <p className="mt-4 text-muted-foreground leading-relaxed">
-                Together, we&apos;re building something bigger than a campaign—we&apos;re building a 
-                movement. Every door knocked, every call made, and every conversation started brings 
-                us closer to victory.
-              </p>
-              <p className="mt-4 text-sm font-semibold text-muted-foreground uppercase tracking-wider">
-                Here&apos;s what we&apos;re working toward—together:
-              </p>
+              <div className="mt-6 rounded-2xl border border-border bg-background/70 p-6 shadow-sm">
+                <h2 className="text-2xl font-bold tracking-tight text-foreground text-balance">
+                  Join the Effort to Build a Stronger Forsyth County
+                </h2>
+                <p className="mt-4 text-muted-foreground leading-relaxed">
+                  Forsyth County deserves leaders who listen, lead with integrity, and put people before politics. Together, we can strengthen our schools, support local businesses, keep our communities safe, and look for ways to keep taxes low so we can continue to be a great place to live, work, run a business and raise a family.
+                </p>
+                <p className="mt-4 text-muted-foreground leading-relaxed font-medium">
+                  But this work doesn&apos;t happen alone — it takes all of us.
+                </p>
+                <p className="mt-4 text-sm font-semibold uppercase tracking-wider text-accent">
+                  Here&apos;s how you can help move Forsyth County forward:
+                </p>
 
-              {/* Impact Stats */}
-              <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-                {impactStats.map((stat) => (
-                  <div key={stat.label} className="text-center">
-                    <p className="text-2xl font-bold text-primary">{stat.number}</p>
-                    <p className="text-xs text-muted-foreground">{stat.label}</p>
-                  </div>
-                ))}
+                <ul className="mt-5 space-y-4">
+                  {movementActionItems.map((item) => (
+                    <li key={item.title} className="flex items-start gap-3 rounded-xl bg-secondary/60 px-4 py-3">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+                      <div>
+                        <p className="font-semibold text-foreground">{item.title}</p>
+                        <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               </div>
-
-              <p className="mt-6 text-muted-foreground font-medium">
-                Be part of the effort that makes the difference.
-              </p>
             </div>
 
             {/* Volunteer Form */}
@@ -231,7 +252,7 @@ export default function GetInvolvedPage() {
       {/* Other Ways to Support */}
       <section className="py-16 lg:py-24 bg-background">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-2">
+          <div className={`grid gap-8 ${SHOW_EVENTS_SECTION ? "lg:grid-cols-2" : "max-w-2xl mx-auto"}`}>
             {/* Donate Card */}
             <div className="rounded-2xl bg-gradient-to-br from-primary to-primary/80 p-8 text-primary-foreground">
               <Heart className="h-10 w-10" />
@@ -250,17 +271,19 @@ export default function GetInvolvedPage() {
             </div>
 
             {/* Events Card */}
-            <div className="rounded-2xl border border-border bg-card p-8">
-              <Users className="h-10 w-10 text-primary" />
-              <h3 className="mt-4 text-2xl font-bold text-foreground">Attend an Event</h3>
-              <p className="mt-2 text-muted-foreground">
-                Meet Chris in person, hear his vision, and connect with fellow supporters 
-                at one of our upcoming campaign events.
-              </p>
-              <Button asChild size="lg" className="mt-6">
-                <Link href="/events">View Events</Link>
-              </Button>
-            </div>
+            {SHOW_EVENTS_SECTION ? (
+              <div className="rounded-2xl border border-border bg-card p-8">
+                <Users className="h-10 w-10 text-primary" />
+                <h3 className="mt-4 text-2xl font-bold text-foreground">Attend an Event</h3>
+                <p className="mt-2 text-muted-foreground">
+                  Meet Chris in person, hear his vision, and connect with fellow supporters 
+                  at one of our upcoming campaign events.
+                </p>
+                <Button asChild size="lg" className="mt-6">
+                  <Link href="/events">View Events</Link>
+                </Button>
+              </div>
+            ) : null}
           </div>
         </div>
       </section>

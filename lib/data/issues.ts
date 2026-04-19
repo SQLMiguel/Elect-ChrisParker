@@ -12,7 +12,7 @@ export const issues: Issue[] = [
     id: "fiscal-responsibility",
     title: "Fiscal Responsibility",
     shortDescription: "Managing taxpayer dollars wisely and keeping taxes low while maintaining essential services.",
-    fullDescription: "As a business leader in the healthcare industry who over 80 employees,  I understand the importance of fiscal discipline. I will fight to keep taxes low while ensuring essential county services are maintained. My twelve years on the WS/FC Utility Commission, including the past two years as Chair, have enabled me to read and understand government budgets and ask the tough questions.  I will push for regular audits, transparent budgeting, and eliminating wasteful spending.",
+    fullDescription: "As a business leader in the healthcare industry who employs over 80 employees, I understand the importance of fiscal discipline. I will fight to keep taxes low while ensuring essential county services are maintained. My twelve years on the WS/FC Utility Commission, including the past two years as Chair, have enabled me to read and understand government budgets and ask the tough questions.  I will push for regular audits, transparent budgeting, and eliminating wasteful spending.",
     icon: "calculator",
     priorities: [
       "Keep property taxes low and predictable",
@@ -67,7 +67,7 @@ export const issues: Issue[] = [
     fullDescription: "A strong community takes care of its most vulnerable members. I will ensure our seniors, veterans, and families in need have access to vital county services. This includes supporting our parks and recreation facilities, libraries, and health department programs that improve quality of life for all residents.",
     icon: "heart",
     priorities: [
-      "Protect and expand services for seniors and veterans",
+      "Protect services for children, seniors, and veterans.",
       "Maintain quality parks and recreation facilities",
       "Support mental health and substance abuse programs",
       "Ensure accessible services throughout the county",

@@ -1,10 +1,12 @@
+import { SHOW_EVENTS_SECTION, SHOW_NEWS_SECTION } from "@/lib/config/visibility"
+
 export const mainNavigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Issues", href: "/issues" },
   { name: "Get Involved", href: "/get-involved" },
-  { name: "News", href: "/news" },
-  { name: "Events", href: "/events" },
+  ...(SHOW_NEWS_SECTION ? [{ name: "News", href: "/news" }] : []),
+  ...(SHOW_EVENTS_SECTION ? [{ name: "Events", href: "/events" }] : []),
   // TODO: Re-enable when real endorsements are available
   // { name: "Endorsements", href: "/endorsements" },
   { name: "Contact", href: "/contact" },
@@ -16,12 +18,12 @@ export const footerNavigation = {
     { name: "Issues", href: "/issues" },
     // TODO: Re-enable when real endorsements are available
     // { name: "Endorsements", href: "/endorsements" },
-    { name: "News", href: "/news" },
+    ...(SHOW_NEWS_SECTION ? [{ name: "News", href: "/news" }] : []),
   ],
   getInvolved: [
     { name: "Volunteer", href: "/get-involved" },
     { name: "Donate", href: "https://secure.anedot.com/committee-to-elect-chris-parker/donate" },
-    { name: "Events", href: "/events" },
+    ...(SHOW_EVENTS_SECTION ? [{ name: "Events", href: "/events" }] : []),
     { name: "Contact", href: "/contact" },
   ],
   legal: [

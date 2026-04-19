@@ -1,8 +1,6 @@
 'use server'
 
-import { createClient } from '@/lib/supabase/server'
 import { sendFormNotification } from './notifications'
-import { addToConstantContact } from './constant-contact'
 
 export async function subscribeSupporters(formData: {
   firstName: string
@@ -14,30 +12,7 @@ export async function subscribeSupporters(formData: {
   emailOptIn: boolean
 }) {
   try {
-    const supabase = await createClient()
-
-    const { data, error } = await supabase
-      .from('supporters')
-      .insert([
-        {
-          first_name: formData.firstName,
-          last_name: formData.lastName,
-          email: formData.email,
-          phone: formData.phone,
-          zip_code: formData.zipCode,
-          sms_opt_in: formData.smsOptIn,
-          email_opt_in: formData.emailOptIn,
-          subscribed_at: new Date().toISOString(),
-        },
-      ])
-      .select()
-
-    if (error) {
-      return { success: false, error: error.message }
-    }
-
-    // Send email notification (non-blocking)
-    sendFormNotification({
+    await sendFormNotification({
       subject: `New Supporter Signup: ${formData.firstName} ${formData.lastName}`,
       formType: 'Campaign Updates Signup',
       fields: {
@@ -49,18 +24,9 @@ export async function subscribeSupporters(formData: {
         'SMS Opt-In': formData.smsOptIn,
         'Email Opt-In': formData.emailOptIn,
       },
-    }).catch(console.error)
+    })
 
-    // Add to Constant Contact mailing list (non-blocking)
-    addToConstantContact({
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      email: formData.email,
-      phone: formData.phone,
-      zipCode: formData.zipCode,
-    }).catch(console.error)
-
-    return { success: true, data }
+    return { success: true }
   } catch (error) {
     return { success: false, error: String(error) }
   }

@@ -67,8 +67,8 @@ export default function AboutPage() {
             </div>
             
             {/* Photo */}
-            <div className="relative">
-              <div className="aspect-[4/5] overflow-hidden rounded-2xl bg-muted shadow-xl">
+            <div className="relative mx-auto w-full max-w-[20.5rem] lg:mx-0 lg:max-w-[23.75rem]">
+              <div className="aspect-[5/6] overflow-hidden rounded-2xl bg-muted shadow-xl">
                 <Image
                   src="/images/chris-parker-portrait.webp"
                   alt="Chris Parker - Official Portrait"

@@ -1,6 +1,5 @@
 'use server'
 
-import { createClient } from '@/lib/supabase/server'
 import { sendFormNotification } from './notifications'
 
 export async function submitContactMessage(formData: {
@@ -12,28 +11,7 @@ export async function submitContactMessage(formData: {
   message: string
 }) {
   try {
-    const supabase = await createClient()
-
-    const { data, error } = await supabase
-      .from('contact_messages')
-      .insert([
-        {
-          first_name: formData.firstName,
-          last_name: formData.lastName,
-          email: formData.email,
-          phone: formData.phone,
-          subject: formData.subject,
-          message: formData.message,
-        },
-      ])
-      .select()
-
-    if (error) {
-      return { success: false, error: error.message }
-    }
-
-    // Send email notification (non-blocking)
-    sendFormNotification({
+    await sendFormNotification({
       subject: `New Contact Message: ${formData.subject} — ${formData.firstName} ${formData.lastName}`,
       formType: 'Contact Form',
       fields: {
@@ -44,9 +22,9 @@ export async function submitContactMessage(formData: {
         'Subject': formData.subject,
         'Message': formData.message,
       },
-    }).catch(console.error)
+    })
 
-    return { success: true, data }
+    return { success: true }
   } catch (error) {
     return { success: false, error: String(error) }
   }

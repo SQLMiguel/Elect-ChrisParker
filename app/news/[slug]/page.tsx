@@ -5,12 +5,19 @@ import { notFound } from "next/navigation"
 import { Calendar, User, ArrowLeft, Share2, Facebook, Twitter } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { posts } from "@/lib/data/posts"
+import { SHOW_NEWS_SECTION } from "@/lib/config/visibility"
 
 type Props = {
   params: Promise<{ slug: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  if (!SHOW_NEWS_SECTION) {
+    return {
+      title: "Not Found",
+    }
+  }
+
   const { slug } = await params
   const post = posts.find((p) => p.slug === slug)
 
@@ -56,6 +63,10 @@ const categoryLabels: Record<string, string> = {
 }
 
 export default async function NewsPostPage({ params }: Props) {
+  if (!SHOW_NEWS_SECTION) {
+    notFound()
+  }
+
   const { slug } = await params
   const post = posts.find((p) => p.slug === slug)
 

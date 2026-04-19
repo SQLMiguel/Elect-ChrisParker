@@ -11,10 +11,7 @@ export function Footer() {
           {/* Campaign Info */}
           <div className="lg:col-span-1">
             <h3 className="text-xl font-bold">{campaignInfo.name}</h3>
-            <p className="mt-1 text-sm text-primary-foreground/80">
-              for {campaignInfo.position}
-            </p>
-            <p className="text-sm text-primary-foreground/80">{campaignInfo.district}</p>
+            <p className="mt-1 text-sm text-primary-foreground/80">for {campaignInfo.position}</p>
             
             <div className="mt-6 space-y-3">
               <div className="flex items-start gap-3">

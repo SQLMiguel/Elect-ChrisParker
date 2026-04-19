@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Briefcase, Shield, Calculator, GraduationCap, Building2, Heart, CheckCircle, ArrowRight } from "lucide-react"
 import { issues } from "@/lib/data/issues"
+import { SHOW_EVENTS_SECTION } from "@/lib/config/visibility"
 
 export const metadata: Metadata = {
   title: "Issues & Priorities",
@@ -95,7 +96,9 @@ export default function IssuesPage() {
                       isEven ? "lg:order-2" : ""
                     }`}>
                       <h3 className="font-semibold text-foreground">
-                        Chris&apos;s Priorities for {issue.title}
+                        {issue.id === "community-services"
+                          ? "Chris's Priorities for Community Services"
+                          : `Chris's Priorities for ${issue.title}`}
                       </h3>
                       <ul className="mt-4 space-y-4">
                         {issue.priorities.map((priority, i) => (
@@ -157,9 +160,11 @@ export default function IssuesPage() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
-                <Link href="/events">Attend an Event</Link>
-              </Button>
+              {SHOW_EVENTS_SECTION ? (
+                <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+                  <Link href="/events">Attend an Event</Link>
+                </Button>
+              ) : null}
             </div>
           </div>
         </div>

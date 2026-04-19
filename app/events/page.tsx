@@ -2,8 +2,10 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Calendar } from "lucide-react"
+import { notFound } from "next/navigation"
 import { events } from "@/lib/data/events"
 import { EventsList } from "@/components/features/events-list"
+import { SHOW_EVENTS_SECTION } from "@/lib/config/visibility"
 
 export const metadata: Metadata = {
   title: "Events",
@@ -11,6 +13,10 @@ export const metadata: Metadata = {
 }
 
 export default function EventsPage() {
+  if (!SHOW_EVENTS_SECTION) {
+    notFound()
+  }
+
   return (
     <>
       {/* Hero Section */}

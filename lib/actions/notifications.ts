@@ -8,6 +8,28 @@ interface EmailNotification {
   fields: Record<string, string | boolean | string[]>
 }
 
+function escapeCsvValue(value: string): string {
+  const needsQuotes = /[",\n]/.test(value)
+  const escaped = value.replace(/"/g, '""')
+  return needsQuotes ? `"${escaped}"` : escaped
+}
+
+function toCsvLine(values: string[]): string {
+  return values.map(escapeCsvValue).join(',')
+}
+
+function buildSubmissionCsv(formType: string, fields: Record<string, string | boolean | string[]>): string {
+  const normalized = Object.entries(fields).map(([key, value]) => {
+    const displayValue = Array.isArray(value) ? value.join('; ') : String(value)
+    return [key, displayValue] as const
+  })
+
+  const headers = ['Timestamp', 'Form Type', ...normalized.map(([key]) => key)]
+  const row = [new Date().toISOString(), formType, ...normalized.map(([, value]) => value)]
+
+  return `${toCsvLine(headers)}\n${toCsvLine(row)}\n`
+}
+
 export async function sendFormNotification({ subject, formType, fields }: EmailNotification) {
   const rows = Object.entries(fields)
     .map(([key, value]) => {
@@ -36,6 +58,10 @@ export async function sendFormNotification({ subject, formType, fields }: EmailN
     })
     .join('\n')
 
+  const csvContent = buildSubmissionCsv(formType, fields)
+  const csvBase64 = Buffer.from(csvContent, 'utf-8').toString('base64')
+  const csvFileName = `${formType.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-submission.csv`
+
   // Use Supabase Edge Function or any email provider.
   // For now, use the Supabase built-in email via the REST API with a database function,
   // or integrate with Resend/SendGrid/etc.
@@ -61,6 +87,12 @@ export async function sendFormNotification({ subject, formType, fields }: EmailN
         subject,
         html,
         text: `New ${formType} Submission\n\n${plainText}`,
+        attachments: [
+          {
+            filename: csvFileName,
+            content: csvBase64,
+          },
+        ],
       }),
     })
 

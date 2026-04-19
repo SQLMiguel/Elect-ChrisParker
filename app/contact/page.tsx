@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { ContactForm } from "@/components/features/contact-form"
 import { Mail, Phone, MapPin, Clock, Facebook, Twitter, Instagram } from "lucide-react"
 import { campaignInfo } from "@/lib/data/navigation"
+import { SHOW_EVENTS_SECTION } from "@/lib/config/visibility"
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -159,7 +160,7 @@ export default function ContactPage() {
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">Media inquiries?</span>
                     <Button asChild variant="link" size="sm" className="h-auto p-0">
-                      <a href={`mailto:press@electchrisparker.org`}>Email Press</a>
+                      <a href={`mailto:${campaignInfo.email}`}>Email Campaign</a>
                     </Button>
                   </div>
                 </div>
@@ -180,9 +181,11 @@ export default function ContactPage() {
             question, concern, or just want to say hello, don&apos;t hesitate to reach out.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-              <Link href="/events">Attend an Event</Link>
-            </Button>
+            {SHOW_EVENTS_SECTION ? (
+              <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+                <Link href="/events">Attend an Event</Link>
+              </Button>
+            ) : null}
             <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
               <Link href="/about">Learn About Chris</Link>
             </Button>

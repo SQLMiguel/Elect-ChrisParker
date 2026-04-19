@@ -6,6 +6,8 @@ import { AboutPreview } from "@/components/sections/about-preview"
 import { NewsPreview } from "@/components/sections/news-preview"
 import { VolunteerCTA } from "@/components/sections/volunteer-cta"
 import { DonateCTA } from "@/components/sections/donate-cta"
+import { FacebookUpdatesCTA } from "@/components/sections/facebook-updates-cta"
+import { SHOW_NEWS_SECTION } from "@/lib/config/visibility"
 
 export default function HomePage() {
   return (
@@ -15,7 +17,8 @@ export default function HomePage() {
       <AboutPreview />
       {/* TODO: Re-enable endorsements when real endorsements are available */}
       {/* <EndorsementsCarousel /> */}
-      <NewsPreview />
+      {SHOW_NEWS_SECTION ? <NewsPreview /> : null}
+      <FacebookUpdatesCTA />
       <VolunteerCTA />
       <DonateCTA />
     </>

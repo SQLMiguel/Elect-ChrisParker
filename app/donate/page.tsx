@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Heart, Shield, CheckCircle, ExternalLink } from "lucide-react"
 import { campaignInfo } from "@/lib/data/navigation"
+import { SHOW_EVENTS_SECTION } from "@/lib/config/visibility"
 
 export const metadata: Metadata = {
   title: "Donate",
@@ -193,9 +194,11 @@ export default function DonatePage() {
               <Button asChild size="lg">
                 <Link href="/get-involved">Become a Volunteer</Link>
               </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link href="/events">Attend an Event</Link>
-              </Button>
+              {SHOW_EVENTS_SECTION ? (
+                <Button asChild variant="outline" size="lg">
+                  <Link href="/events">Attend an Event</Link>
+                </Button>
+              ) : null}
             </div>
           </div>
         </div>

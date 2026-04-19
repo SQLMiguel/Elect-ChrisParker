@@ -2,7 +2,9 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
 import { Calendar, ArrowRight, Tag } from "lucide-react"
+import { notFound } from "next/navigation"
 import { posts } from "@/lib/data/posts"
+import { SHOW_NEWS_SECTION } from "@/lib/config/visibility"
 
 export const metadata: Metadata = {
   title: "News & Updates",
@@ -26,6 +28,10 @@ const categoryLabels: Record<string, string> = {
 }
 
 export default function NewsPage() {
+  if (!SHOW_NEWS_SECTION) {
+    notFound()
+  }
+
   const sortedPosts = [...posts].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   )
