@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://www.electchrisparker.org',
+    url: 'https://www.votechrisparker.com',
     siteName: 'Chris Parker for Commissioner',
     title: 'Chris Parker for Forsyth County Commissioner',
     description: 'Leadership for Forsyth\'s Future. Vote Chris Parker for County Commissioner District B.',
