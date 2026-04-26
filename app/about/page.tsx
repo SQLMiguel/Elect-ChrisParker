@@ -152,8 +152,18 @@ export default function AboutPage() {
             <div className="space-y-6">
               <div className="aspect-video overflow-hidden rounded-2xl bg-muted shadow-lg">
                 <Image
-                  src="/images/CroppedFamilyPhoto.jpg"
-                  alt="Chris Parker and family"
+                  src="/images/WithHeahter.jpg"
+                  alt="Chris Parker with his wife Heather"
+                  width={800}
+                  height={450}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+
+              <div className="aspect-video overflow-hidden rounded-2xl bg-muted shadow-lg">
+                <Image
+                  src="/images/YMCA1.jpg"
+                  alt="Chris Parker at the YMCA Northwest NC"
                   width={800}
                   height={450}
                   className="h-full w-full object-cover"

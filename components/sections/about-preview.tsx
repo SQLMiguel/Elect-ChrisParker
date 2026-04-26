@@ -21,8 +21,8 @@ export function AboutPreview() {
           <div className="relative order-2 lg:order-1">
             <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-muted shadow-xl">
               <Image
-                src="/images/chris-parker-portrait.webp"
-                alt="Chris Parker - Official Portrait"
+                src="/images/SittingAtDeskClean.png"
+                alt="Chris Parker at his desk"
                 width={400}
                 height={300}
                 className="h-full w-full object-cover"
