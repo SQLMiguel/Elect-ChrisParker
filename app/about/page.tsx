@@ -148,26 +148,45 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Family photo */}
+            {/* Photo grid */}
             <div className="space-y-6">
-              <div className="aspect-video overflow-hidden rounded-2xl bg-muted shadow-lg">
-                <Image
-                  src="/images/WithHeahter.jpg"
-                  alt="Chris Parker with his wife Heather"
-                  width={800}
-                  height={450}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-
-              <div className="aspect-video overflow-hidden rounded-2xl bg-muted shadow-lg">
-                <Image
-                  src="/images/YMCA1.jpg"
-                  alt="Chris Parker at the YMCA Northwest NC"
-                  width={800}
-                  height={450}
-                  className="h-full w-full object-cover"
-                />
+              <div className="grid grid-cols-2 gap-4">
+                <div className="aspect-square overflow-hidden rounded-xl bg-muted shadow-md">
+                  <Image
+                    src="/images/VVwithCake.JPG"
+                    alt="Chris Parker at Vienna Village celebration"
+                    width={400}
+                    height={400}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="aspect-square overflow-hidden rounded-xl bg-muted shadow-md">
+                  <Image
+                    src="/images/YMCA2_1x1.png"
+                    alt="Chris Parker at the YMCA Northwest NC"
+                    width={400}
+                    height={400}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="aspect-square overflow-hidden rounded-xl bg-muted shadow-md">
+                  <Image
+                    src="/images/FamilyPhoto_1x1.png"
+                    alt="Chris Parker and family"
+                    width={400}
+                    height={400}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="aspect-square overflow-hidden rounded-xl bg-muted shadow-md">
+                  <Image
+                    src="/images/Restaurant.jpg"
+                    alt="Chris Parker at a local restaurant"
+                    width={400}
+                    height={400}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
               </div>
               
               <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
