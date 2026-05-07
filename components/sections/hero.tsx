@@ -73,7 +73,7 @@ export function Hero() {
           <div className="relative mx-auto w-full max-w-[22.5rem] lg:mx-0 lg:justify-self-end lg:max-w-[28rem]">
             <div className="aspect-[4/5] overflow-hidden rounded-2xl bg-muted shadow-2xl">
               <Image
-                src="/images/chris-parker-portrait.webp"
+                src="/images/Candidacy_edit.png"
                 alt="Chris Parker - Forsyth County Commissioner Candidate"
                 width={400}
                 height={500}
