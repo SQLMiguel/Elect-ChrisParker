@@ -11,7 +11,7 @@ export async function submitContactMessage(formData: {
   message: string
 }) {
   try {
-    await sendFormNotification({
+    const emailResult = await sendFormNotification({
       subject: `New Contact Message: ${formData.subject} — ${formData.firstName} ${formData.lastName}`,
       formType: 'Contact Form',
       fields: {
@@ -23,6 +23,11 @@ export async function submitContactMessage(formData: {
         'Message': formData.message,
       },
     })
+
+    if (!emailResult.success) {
+      console.error('[Contact] Email notification failed:', emailResult.error)
+      return { success: false, error: emailResult.error || 'Email notification failed' }
+    }
 
     return { success: true }
   } catch (error) {

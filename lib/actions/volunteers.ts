@@ -15,7 +15,7 @@ export async function submitVolunteer(formData: {
   comments: string
 }) {
   try {
-    await sendFormNotification({
+    const emailResult = await sendFormNotification({
       subject: `New Volunteer Signup: ${formData.firstName} ${formData.lastName}`,
       formType: 'Volunteer Signup',
       fields: {
@@ -31,6 +31,11 @@ export async function submitVolunteer(formData: {
         'Comments': formData.comments,
       },
     })
+
+    if (!emailResult.success) {
+      console.error('[Volunteer] Email notification failed:', emailResult.error)
+      return { success: false, error: emailResult.error || 'Email notification failed' }
+    }
 
     return { success: true }
   } catch (error) {

@@ -1,6 +1,14 @@
 'use server'
 
-const NOTIFICATION_EMAIL = 'info@electchrisparker.org'
+import nodemailer from 'nodemailer'
+
+const NOTIFICATION_EMAIL = process.env.NOTIFICATION_EMAIL || 'info@electchrisparker.org'
+const SMTP_HOST = process.env.SMTP_HOST
+const SMTP_PORT = Number(process.env.SMTP_PORT || 587)
+const SMTP_USER = process.env.SMTP_USER
+const SMTP_PASS = process.env.SMTP_PASS
+const SMTP_FROM = process.env.SMTP_FROM || `Campaign Website <${SMTP_USER || NOTIFICATION_EMAIL}>`
+const SMTP_SECURE = process.env.SMTP_SECURE === 'true' || SMTP_PORT === 465
 
 interface EmailNotification {
   subject: string
@@ -59,52 +67,44 @@ export async function sendFormNotification({ subject, formType, fields }: EmailN
     .join('\n')
 
   const csvContent = buildSubmissionCsv(formType, fields)
-  const csvBase64 = Buffer.from(csvContent, 'utf-8').toString('base64')
   const csvFileName = `${formType.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-submission.csv`
 
-  // Use Supabase Edge Function or any email provider.
-  // For now, use the Supabase built-in email via the REST API with a database function,
-  // or integrate with Resend/SendGrid/etc.
-  // Below is a Resend-compatible implementation. Set RESEND_API_KEY in your .env.
-  const apiKey = process.env.RESEND_API_KEY
-  if (!apiKey) {
-    console.warn('[Email Notification] RESEND_API_KEY not set. Email not sent. Subject:', subject)
+  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
+    console.warn('[Email Notification] SMTP environment variables not configured. Subject:', subject)
     console.log('[Email Notification] Would have sent to:', NOTIFICATION_EMAIL)
     console.log('[Email Notification] Content:', plainText)
-    return { success: false, error: 'Email service not configured' }
+    return { success: false, error: 'SMTP email service not configured' }
   }
 
-  try {
-    const response = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        from: 'Campaign Website <notifications@electchrisparker.org>',
-        to: [NOTIFICATION_EMAIL],
-        subject,
-        html,
-        text: `New ${formType} Submission\n\n${plainText}`,
-        attachments: [
-          {
-            filename: csvFileName,
-            content: csvBase64,
-          },
-        ],
-      }),
-    })
+  const transporter = nodemailer.createTransport({
+    host: SMTP_HOST,
+    port: SMTP_PORT,
+    secure: SMTP_SECURE,
+    auth: {
+      user: SMTP_USER,
+      pass: SMTP_PASS,
+    },
+  })
 
-    if (!response.ok) {
-      const errorData = await response.text()
-      console.error('[Email Notification] Failed:', errorData)
-      return { success: false, error: 'Failed to send email notification' }
-    }
+  try {
+    await transporter.sendMail({
+      from: SMTP_FROM,
+      to: NOTIFICATION_EMAIL,
+      subject,
+      text: `New ${formType} Submission\n\n${plainText}`,
+      html,
+      attachments: [
+        {
+          filename: csvFileName,
+          content: csvContent,
+          contentType: 'text/csv',
+        },
+      ],
+    })
 
     return { success: true }
   } catch (error) {
-    console.error('[Email Notification] Error:', error)
+    console.error('[Email Notification] SMTP send failed:', error)
     return { success: false, error: String(error) }
   }
 }

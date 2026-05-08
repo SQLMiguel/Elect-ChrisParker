@@ -12,7 +12,7 @@ export async function subscribeSupporters(formData: {
   emailOptIn: boolean
 }) {
   try {
-    await sendFormNotification({
+    const emailResult = await sendFormNotification({
       subject: `New Supporter Signup: ${formData.firstName} ${formData.lastName}`,
       formType: 'Campaign Updates Signup',
       fields: {
@@ -25,6 +25,11 @@ export async function subscribeSupporters(formData: {
         'Email Opt-In': formData.emailOptIn,
       },
     })
+
+    if (!emailResult.success) {
+      console.error('[Supporters] Email notification failed:', emailResult.error)
+      return { success: false, error: emailResult.error || 'Email notification failed' }
+    }
 
     return { success: true }
   } catch (error) {
