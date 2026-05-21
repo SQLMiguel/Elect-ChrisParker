@@ -2,9 +2,6 @@
 
 import { sendFormNotification } from './notifications'
 
-const FORM_SUBMISSION_ERROR =
-  'We could not send your volunteer signup right now. Please email info@electchrisparker.org directly.'
-
 export async function submitVolunteer(formData: {
   firstName: string
   lastName: string
@@ -42,7 +39,6 @@ export async function submitVolunteer(formData: {
 
     return { success: true }
   } catch (error) {
-    console.error('[Volunteer] Unexpected signup failure:', error)
-    return { success: false, error: FORM_SUBMISSION_ERROR }
+    return { success: false, error: String(error) }
   }
 }

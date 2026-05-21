@@ -8,21 +8,12 @@ const SMTP_PORT = Number(process.env.SMTP_PORT || 587)
 const SMTP_USER = process.env.SMTP_USER
 const SMTP_PASS = process.env.SMTP_PASS
 const SMTP_FROM = process.env.SMTP_FROM || `Campaign Website <${SMTP_USER || NOTIFICATION_EMAIL}>`
-const SMTP_SECURE_ENV = process.env.SMTP_SECURE?.trim().toLowerCase()
-const SMTP_SECURE = getSmtpSecureMode(SMTP_PORT, SMTP_SECURE_ENV)
-const FORM_SUBMISSION_ERROR =
-  `We could not send your submission right now. Please email ${NOTIFICATION_EMAIL} directly.`
+const SMTP_SECURE = process.env.SMTP_SECURE === 'true' || SMTP_PORT === 465
 
 interface EmailNotification {
   subject: string
   formType: string
   fields: Record<string, string | boolean | string[]>
-}
-
-function getSmtpSecureMode(port: number, secureEnv: string | undefined): boolean {
-  if (port === 465) return true
-  if (port === 587) return false
-  return secureEnv === 'true'
 }
 
 function escapeCsvValue(value: string): string {
@@ -82,14 +73,13 @@ export async function sendFormNotification({ subject, formType, fields }: EmailN
     console.warn('[Email Notification] SMTP environment variables not configured. Subject:', subject)
     console.log('[Email Notification] Would have sent to:', NOTIFICATION_EMAIL)
     console.log('[Email Notification] Content:', plainText)
-    return { success: false, error: FORM_SUBMISSION_ERROR }
+    return { success: false, error: 'SMTP email service not configured' }
   }
 
   const transporter = nodemailer.createTransport({
     host: SMTP_HOST,
     port: SMTP_PORT,
     secure: SMTP_SECURE,
-    requireTLS: SMTP_PORT === 587,
     auth: {
       user: SMTP_USER,
       pass: SMTP_PASS,
@@ -115,6 +105,6 @@ export async function sendFormNotification({ subject, formType, fields }: EmailN
     return { success: true }
   } catch (error) {
     console.error('[Email Notification] SMTP send failed:', error)
-    return { success: false, error: FORM_SUBMISSION_ERROR }
+    return { success: false, error: String(error) }
   }
 }

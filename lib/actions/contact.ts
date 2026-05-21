@@ -2,9 +2,6 @@
 
 import { sendFormNotification } from './notifications'
 
-const FORM_SUBMISSION_ERROR =
-  'We could not send your message right now. Please email info@electchrisparker.org directly.'
-
 export async function submitContactMessage(formData: {
   firstName: string
   lastName: string
@@ -15,7 +12,7 @@ export async function submitContactMessage(formData: {
 }) {
   try {
     const emailResult = await sendFormNotification({
-      subject: `New Contact Message: ${formData.subject} - ${formData.firstName} ${formData.lastName}`,
+      subject: `New Contact Message: ${formData.subject} — ${formData.firstName} ${formData.lastName}`,
       formType: 'Contact Form',
       fields: {
         'First Name': formData.firstName,
@@ -34,7 +31,6 @@ export async function submitContactMessage(formData: {
 
     return { success: true }
   } catch (error) {
-    console.error('[Contact] Unexpected message failure:', error)
-    return { success: false, error: FORM_SUBMISSION_ERROR }
+    return { success: false, error: String(error) }
   }
 }

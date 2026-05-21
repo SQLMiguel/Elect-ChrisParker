@@ -24,9 +24,6 @@ const subjects = [
   { value: "other", label: "Other" },
 ]
 
-const CONTACT_FORM_ERROR =
-  'We could not send your message right now. Please email info@electchrisparker.org directly.'
-
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -78,9 +75,8 @@ export function ContactForm() {
       } else {
         setError(result.error || 'Failed to send message. Please try again.')
       }
-    } catch (error) {
-      console.error('[ContactForm] Submit failed:', error)
-      setError(CONTACT_FORM_ERROR)
+    } catch {
+      setError('An error occurred. Please try again.')
     } finally {
       setIsLoading(false)
     }
@@ -171,7 +167,6 @@ export function ContactForm() {
           <select
             id="contact-subject"
             name="subject"
-            aria-label="Contact message subject"
             required
             value={formData.subject}
             onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
