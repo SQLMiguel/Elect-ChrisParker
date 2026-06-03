@@ -111,7 +111,7 @@ export default function ContactPage() {
                 
                 <div className="mt-6 flex gap-4">
                   <a
-                    href="https://facebook.com/electchrisparker"
+                    href="https://www.facebook.com/profile.php?id=61585454301313"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"

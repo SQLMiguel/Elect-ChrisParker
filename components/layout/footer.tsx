@@ -75,7 +75,7 @@ export function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-wider">Connect</h3>
             <div className="mt-4 flex gap-4">
               <a
-                href="https://facebook.com/electchrisparker"
+                href="https://www.facebook.com/profile.php?id=61585454301313"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"

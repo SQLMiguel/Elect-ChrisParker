@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { socialLinks } from "@/lib/data/navigation"
 import { CalendarDays, Facebook, Newspaper, ArrowRight } from "lucide-react"
 
-const facebookLink = socialLinks.find((link) => link.name === "Facebook")?.href ?? "https://facebook.com/electchrisparker"
+const facebookLink = socialLinks.find((link) => link.name === "Facebook")?.href ?? "https://www.facebook.com/profile.php?id=61585454301313"
 
 const updateHighlights = [
   {
