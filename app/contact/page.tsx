@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ContactForm } from "@/components/features/contact-form"
-import { Mail, Phone, MapPin, Clock, Facebook, Twitter, Instagram } from "lucide-react"
+import { Mail, Phone, MapPin, Clock, Facebook } from "lucide-react"
 import { campaignInfo } from "@/lib/data/navigation"
 import { SHOW_EVENTS_SECTION } from "@/lib/config/visibility"
 
@@ -118,24 +118,6 @@ export default function ContactPage() {
                   >
                     <Facebook className="h-6 w-6" />
                     <span className="sr-only">Facebook</span>
-                  </a>
-                  <a
-                    href="https://twitter.com/electchrisparker"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                  >
-                    <Twitter className="h-6 w-6" />
-                    <span className="sr-only">Twitter</span>
-                  </a>
-                  <a
-                    href="https://instagram.com/electchrisparker"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                  >
-                    <Instagram className="h-6 w-6" />
-                    <span className="sr-only">Instagram</span>
                   </a>
                 </div>
               </div>

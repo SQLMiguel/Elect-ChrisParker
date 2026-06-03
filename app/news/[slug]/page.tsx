@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
-import { Calendar, User, ArrowLeft, Share2, Facebook, Twitter } from "lucide-react"
+import { Calendar, User, ArrowLeft, Share2, Facebook } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { posts } from "@/lib/data/posts"
 import { SHOW_NEWS_SECTION } from "@/lib/config/visibility"
@@ -194,16 +194,6 @@ export default async function NewsPostPage({ params }: Props) {
                       >
                         <Facebook className="mr-2 h-4 w-4" />
                         Facebook
-                      </a>
-                    </Button>
-                    <Button variant="outline" size="sm" asChild>
-                      <a
-                        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`https://www.electchrisparker.org/news/${post.slug}`)}&text=${encodeURIComponent(post.title)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Twitter className="mr-2 h-4 w-4" />
-                        Twitter
                       </a>
                     </Button>
                   </div>

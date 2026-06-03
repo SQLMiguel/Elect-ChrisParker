@@ -29,11 +29,6 @@ export const metadata: Metadata = {
     title: 'Chris Parker for Forsyth County Commissioner',
     description: 'Leadership for Forsyth\'s Future. Vote Chris Parker for County Commissioner District B.',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Chris Parker for Forsyth County Commissioner',
-    description: 'Leadership for Forsyth\'s Future. Vote Chris Parker for County Commissioner District B.',
-  },
 }
 
 export const viewport: Viewport = {

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from "lucide-react"
+import { Facebook, Mail, Phone, MapPin } from "lucide-react"
 import { footerNavigation, campaignInfo } from "@/lib/data/navigation"
 import { UpdatesSignupForm } from "@/components/features/updates-signup-form"
 
@@ -82,24 +82,6 @@ export function Footer() {
               >
                 <span className="sr-only">Facebook</span>
                 <Facebook className="h-6 w-6" />
-              </a>
-              <a
-                href="https://twitter.com/electchrisparker"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-              >
-                <span className="sr-only">Twitter</span>
-                <Twitter className="h-6 w-6" />
-              </a>
-              <a
-                href="https://instagram.com/electchrisparker"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-              >
-                <span className="sr-only">Instagram</span>
-                <Instagram className="h-6 w-6" />
               </a>
             </div>
 

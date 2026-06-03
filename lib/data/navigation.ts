@@ -34,8 +34,6 @@ export const footerNavigation = {
 
 export const socialLinks = [
   { name: "Facebook", href: "https://www.facebook.com/profile.php?id=61585454301313", icon: "facebook" },
-  { name: "Twitter", href: "https://twitter.com/electchrisparker", icon: "twitter" },
-  { name: "Instagram", href: "https://instagram.com/electchrisparker", icon: "instagram" },
 ]
 
 export const campaignInfo = {
