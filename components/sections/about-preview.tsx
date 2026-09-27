@@ -14,7 +14,7 @@ const highlights = [
 
 export function AboutPreview() {
   return (
-    <section className="py-16 lg:py-24 bg-secondary">
+    <section className="py-16 lg:py-24 bg-background">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
           {/* Image */}
@@ -39,23 +39,22 @@ export function AboutPreview() {
 
           {/* Content */}
           <div className="order-1 lg:order-2">
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-accent">
+            <h2 className="font-display text-2xl uppercase tracking-wide text-accent">
               Meet Chris Parker
             </h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
-              A Leader Who Listens
+              A Local Small Business Owner with Bipartisan Solutions
             </p>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-              Having lived and worked in the community for over three decades, Chris has built a life centered around service, family, and local engagement.
+              Chris Parker has never run for public office and has no desire to be a career
+              politician. He has called Forsyth County home for more than three decades, built a
+              business and raised his family in our community.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              As a successful business owner, devoted husband and father, and active community
-              volunteer, Chris understands the challenges and opportunities facing our county.
-            </p>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              Chris believes in common-sense solutions and fiscal responsibility. He&apos;s not running to be a career politician—he&apos;s
-              running to serve his community and make Forsyth County an even better place to
-              live, work, raise a family, and run a business.
+              Chris served as a trustee at Forsyth Tech and chair of the local utility commission.
+              He&apos;s running for Commissioner to put his experience to work improving our
+              schools, keeping property taxes low, fostering safe neighborhoods, and putting
+              people over partisan politics.
             </p>
 
             <div className="mt-8">

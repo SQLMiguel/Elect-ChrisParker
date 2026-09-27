@@ -23,7 +23,7 @@ export default function EventsPage() {
       <section className="bg-secondary py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+            <h1 className="text-6xl text-foreground sm:text-7xl">
               Campaign Events
             </h1>
             <p className="mt-6 text-xl text-muted-foreground leading-relaxed">

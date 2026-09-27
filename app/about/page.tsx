@@ -40,18 +40,23 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
             <div>
-              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl text-balance">
+              <h1 className="text-6xl text-foreground sm:text-7xl text-balance">
                 Meet <span className="text-primary">Chris Parker</span>
               </h1>
-              <p className="mt-6 text-xl text-muted-foreground leading-relaxed">
-                A successful business owner, devoted family man, and dedicated community servant.
+              <p className="mt-6 text-xl font-bold uppercase tracking-wide text-accent">
+                Reasonable. Reliable. Respected.
+              </p>
+              <p className="mt-2 text-xl text-muted-foreground leading-relaxed">
+                A local small business owner with bipartisan solutions.
               </p>
               <p className="mt-4 text-muted-foreground leading-relaxed">
-                For over three decades, Chris has called Forsyth County home. He has operated a 
-                successful business here, raised his family here, and given back to his 
-                community through countless volunteer hours. Now, he is ready to take on a 
-                new challenge: ensuring that Forsyth County remains a great place to live, 
-                work, raise a family, and run a business for generations to come.
+                Chris Parker has never run for public office and has no desire to be a career
+                politician. For more than three decades, Chris has called Forsyth County home. He
+                built a business here, raised his family here, and has given back to his
+                community through countless volunteer hours. Now he&apos;s running for
+                Commissioner to put his experience to work improving our schools, keeping
+                property taxes low, fostering safe neighborhoods, and putting people over
+                partisan politics.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
@@ -141,9 +146,9 @@ export default function AboutPage() {
                 </p>
                 <p>
                   Now, Chris is ready to bring his experience, values, and vision to the Forsyth 
-                  County Board of Commissioners. He believes in common-sense solutions, fiscal 
-                  responsibility, and putting people over politics. He is not running to be a 
-                  career politician—he is running to serve his community.
+                  County Board of Commissioners. He will work with Republicans and Democrats to 
+                  solve real problems, and he won&apos;t waste time with partisan games. He is 
+                  not running to be a career politician—he is running to serve his community.
                 </p>
               </div>
             </div>

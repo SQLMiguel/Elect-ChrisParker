@@ -2,40 +2,46 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Campaign palette (from 2026 mailers/billboards):
+   navy #1A1F4E, red #B42328, sky #8AB8D8, slate #C5CDD4 */
 :root {
-  --background: oklch(0.99 0 0);
-  --foreground: oklch(0.2 0.02 255);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2 0.02 255);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.02 255);
-  --primary: oklch(0.3 0.06 255);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.97 0.005 255);
-  --secondary-foreground: oklch(0.25 0.04 255);
-  --muted: oklch(0.96 0.005 255);
-  --muted-foreground: oklch(0.5 0.02 255);
-  --accent: oklch(0.5 0.2 25);
-  --accent-foreground: oklch(0.99 0 0);
-  --destructive: oklch(0.5 0.2 25);
-  --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.9 0.01 255);
-  --input: oklch(0.9 0.01 255);
-  --ring: oklch(0.3 0.06 255);
-  --chart-1: oklch(0.3 0.06 255);
-  --chart-2: oklch(0.5 0.2 25);
+  --background: #ffffff;
+  --foreground: #1a1f4e;
+  --card: #ffffff;
+  --card-foreground: #1a1f4e;
+  --popover: #ffffff;
+  --popover-foreground: #1a1f4e;
+  --primary: #1a1f4e;
+  --primary-foreground: #ffffff;
+  --secondary: #eef4f9;
+  --secondary-foreground: #1a1f4e;
+  --muted: #f1f4f7;
+  --muted-foreground: #4a5170;
+  --accent: #b42328;
+  --accent-foreground: #ffffff;
+  --accent-dark: #9e1d22;
+  --sky: #8ab8d8;
+  --sky-foreground: #1a1f4e;
+  --slate: #c5cdd4;
+  --destructive: #b42328;
+  --destructive-foreground: #ffffff;
+  --border: #dbe3ea;
+  --input: #dbe3ea;
+  --ring: #1a1f4e;
+  --chart-1: #1a1f4e;
+  --chart-2: #b42328;
   --chart-3: oklch(0.7 0.15 85);
   --chart-4: oklch(0.6 0.15 180);
   --chart-5: oklch(0.5 0.1 300);
   --radius: 0.5rem;
-  --sidebar: oklch(0.25 0.04 255);
-  --sidebar-foreground: oklch(0.95 0 0);
-  --sidebar-primary: oklch(0.99 0 0);
-  --sidebar-primary-foreground: oklch(0.25 0.04 255);
-  --sidebar-accent: oklch(0.35 0.05 255);
-  --sidebar-accent-foreground: oklch(0.95 0 0);
-  --sidebar-border: oklch(0.35 0.04 255);
-  --sidebar-ring: oklch(0.5 0.1 255);
+  --sidebar: #1a1f4e;
+  --sidebar-foreground: #f5f7fa;
+  --sidebar-primary: #ffffff;
+  --sidebar-primary-foreground: #1a1f4e;
+  --sidebar-accent: #2a3068;
+  --sidebar-accent-foreground: #f5f7fa;
+  --sidebar-border: #2a3068;
+  --sidebar-ring: #8ab8d8;
 }
 
 .dark {
@@ -74,8 +80,13 @@
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bebas), 'Arial Narrow', Impact, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --color-sky: var(--sky);
+  --color-sky-foreground: var(--sky-foreground);
+  --color-slate-brand: var(--slate);
+  --color-accent-dark: var(--accent-dark);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -120,5 +131,32 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  h1 {
+    font-family: var(--font-bebas), 'Arial Narrow', Impact, sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    line-height: 0.95;
+  }
+}
+
+@layer utilities {
+  /* Vertical campaign stripes used on the mailers and billboards */
+  .bg-stripes-red {
+    background-color: var(--accent);
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent 0 56px,
+      var(--accent-dark) 56px 112px
+    );
+  }
+  .bg-stripes-red-horizontal {
+    background-color: var(--accent);
+    background-image: repeating-linear-gradient(
+      180deg,
+      transparent 0 36px,
+      var(--accent-dark) 36px 72px
+    );
   }
 }

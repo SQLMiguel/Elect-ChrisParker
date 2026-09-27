@@ -10,8 +10,9 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Campaign Info */}
           <div className="lg:col-span-1">
-            <h3 className="text-xl font-bold">{campaignInfo.name}</h3>
+            <h3 className="font-display text-4xl uppercase leading-none">{campaignInfo.name}</h3>
             <p className="mt-1 text-sm text-primary-foreground/80">for {campaignInfo.position}</p>
+            <p className="mt-2 text-sm font-bold uppercase tracking-wide text-sky">{campaignInfo.slogan}</p>
             
             <div className="mt-6 space-y-3">
               <div className="flex items-start gap-3">

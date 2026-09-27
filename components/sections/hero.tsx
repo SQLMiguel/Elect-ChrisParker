@@ -6,72 +6,16 @@ import { ChevronRight } from "lucide-react"
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-secondary to-background">
-      <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-5" />
-      
-      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:py-24 lg:px-8 lg:py-32">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
-          {/* Content */}
-          <div className="max-w-xl">
-            <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
-              </span>
-              {campaignInfo.district} Race
-            </div>
-            
-            <h1 className="mt-6 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl text-balance">
-              <span className="text-primary">{campaignInfo.name}</span>
-              <br />
-              <span className="text-3xl sm:text-4xl lg:text-5xl text-muted-foreground">
-                for {campaignInfo.position}
-              </span>
-            </h1>
-            
-            <p className="mt-4 text-xl font-medium text-accent">
-              {campaignInfo.slogan}
-            </p>
-            
-            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-              As business owner and leader in Forsyth County, Chris is committed to Forsyth County being the best place to live, work, raise a family and run a business.
-            </p>
-            
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-                <a href="https://secure.anedot.com/committee-to-elect-chris-parker/donate" target="_blank" rel="noopener noreferrer">
-                  Donate Now
-                  <ChevronRight className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link href="/get-involved">
-                  Join the Campaign
-                </Link>
-              </Button>
-            </div>
-            
-            <div className="mt-10 grid grid-cols-2 gap-4 border-t border-border pt-8">
-              <div>
-                <p className="text-3xl font-bold text-primary">30+</p>
-                <p className="text-sm text-muted-foreground">Years in Forsyth County</p>
-              </div>
-              {/* TODO: Re-enable when real endorsements are available
-              <div>
-                <p className="text-3xl font-bold text-primary">100+</p>
-                <p className="text-sm text-muted-foreground">Community Endorsements</p>
-              </div>
-              */}
-              <div>
-                <p className="text-3xl font-bold text-primary">10,000+</p>
-                <p className="text-sm text-muted-foreground">Volunteer Hours</p>
-              </div>
-            </div>
-          </div>
-          
-          {/* Official Portrait */}
-          <div className="relative mx-auto w-full max-w-[22.5rem] lg:mx-0 lg:justify-self-end lg:max-w-[28rem]">
-            <div className="aspect-[4/5] overflow-hidden rounded-2xl bg-muted shadow-2xl">
+    <section className="relative overflow-hidden bg-stripes-red">
+      <div className="relative mx-auto max-w-7xl px-4 py-14 sm:py-20 lg:px-8 lg:py-24">
+        <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          {/* Official Portrait with navy arc, as on the billboards */}
+          <div className="relative order-2 mx-auto w-full max-w-[22rem] lg:order-1 lg:max-w-[28rem]">
+            <div
+              aria-hidden="true"
+              className="absolute left-1/2 top-1/2 -z-0 aspect-square w-[130%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary"
+            />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border-4 border-white bg-muted shadow-2xl">
               <Image
                 src="/images/Candidacy_edit.png"
                 alt="Chris Parker - Forsyth County Commissioner Candidate"
@@ -81,9 +25,64 @@ export function Hero() {
                 priority
               />
             </div>
-            {/* Decorative elements */}
-            <div className="absolute -bottom-4 -right-4 h-72 w-72 rounded-2xl bg-accent/10 -z-10" />
-            <div className="absolute -top-4 -left-4 h-48 w-48 rounded-2xl bg-primary/10 -z-10" />
+          </div>
+
+          {/* Content */}
+          <div className="relative order-1 text-white lg:order-2">
+            <p className="inline-flex items-center gap-2 rounded-sm bg-primary px-3 py-1 text-sm font-semibold uppercase tracking-wider">
+              {campaignInfo.district} &middot; Forsyth County
+            </p>
+
+            <h1 className="mt-5 text-7xl sm:text-8xl lg:text-9xl">
+              {campaignInfo.name}
+            </h1>
+
+            <p className="mt-2 text-2xl font-medium uppercase tracking-wide text-sky sm:text-3xl lg:text-4xl">
+              County Commissioner
+            </p>
+
+            <p className="mt-3 text-lg font-extrabold uppercase tracking-wide sm:text-2xl">
+              {campaignInfo.slogan}
+            </p>
+
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/90">
+              Chris is {campaignInfo.tagline.toLowerCase()}. He&apos;s running to put his
+              experience to work improving our schools, keeping property taxes low, fostering
+              safe neighborhoods, and putting people over partisan politics.
+            </p>
+
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Button asChild size="lg" className="bg-white text-accent hover:bg-white/90 font-semibold">
+                <a href={campaignInfo.donateUrl} target="_blank" rel="noopener noreferrer">
+                  Donate Now
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold"
+              >
+                <Link href="/get-involved">Join the Campaign</Link>
+              </Button>
+            </div>
+
+            <div className="mt-10 grid max-w-md grid-cols-2 gap-4 border-t border-white/30 pt-8">
+              <div>
+                <p className="font-display text-5xl">30+</p>
+                <p className="text-sm text-white/80">Years in Forsyth County</p>
+              </div>
+              {/* TODO: Re-enable when real endorsements are available
+              <div>
+                <p className="font-display text-5xl">100+</p>
+                <p className="text-sm text-white/80">Community Endorsements</p>
+              </div>
+              */}
+              <div>
+                <p className="font-display text-5xl">10,000+</p>
+                <p className="text-sm text-white/80">Volunteer Hours</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

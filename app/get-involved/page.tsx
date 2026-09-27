@@ -75,7 +75,7 @@ export default function GetInvolvedPage() {
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
             <div>
-              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl text-balance">
+              <h1 className="text-6xl text-foreground sm:text-7xl text-balance">
                 Join the <span className="text-primary">Movement</span>
               </h1>
               <p className="mt-6 text-xl text-muted-foreground leading-relaxed">

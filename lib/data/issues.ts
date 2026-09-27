@@ -40,7 +40,9 @@ export const issues: Issue[] = [
     fullDescription: "Forsyth County has tremendous potential for economic growth. Serving on the Board of Trustees for Forsyth Technical Community College, I have seen first hand the importance in educating our citizens to work for both existing and future employers.  These opportunities will create pathways to good-paying jobs for all residents .  Understanding that education is the key, we must focus on K to 12 education as well.  As your Commissioner, I will work to attract new businesses while supporting our existing employers and ensure that our citizens are sufficiently equipped to take advantage of those new opportunities.  We must invest in workforce development, streamline permitting processes, and ensure our infrastructure supports sustainable growth.",
     icon: "graduation-cap",
     priorities: [
-      "Invest in workforce training and skills development",
+      "Invest in workforce development at Forsyth Tech",
+      "Increase teacher pay",
+      "Reduce wasteful spending in Forsyth County Public Schools",
       "Attract new businesses and industries to Forsyth County",
       "Support small business development and entrepreneurship",
       "Streamline county permitting and approval processes",

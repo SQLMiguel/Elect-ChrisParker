@@ -109,7 +109,7 @@ export default async function NewsPostPage({ params }: Props) {
             </div>
           </div>
 
-          <h1 className="mt-6 text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl text-balance">
+          <h1 className="mt-6 text-5xl text-foreground sm:text-6xl lg:text-7xl text-balance">
             {post.title}
           </h1>
 

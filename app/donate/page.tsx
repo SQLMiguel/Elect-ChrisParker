@@ -41,7 +41,7 @@ export default function DonatePage() {
                 <Heart className="h-4 w-4" />
                 Support the Campaign
               </div>
-              <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl text-balance">
+              <h1 className="mt-4 text-6xl text-foreground sm:text-7xl text-balance">
                 Invest in <span className="text-primary">Forsyth&apos;s Future</span>
               </h1>
               <p className="mt-6 text-xl text-muted-foreground leading-relaxed">

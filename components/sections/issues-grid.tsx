@@ -16,10 +16,10 @@ export function IssuesGrid() {
   const featuredIssues = issues.slice(0, 4)
 
   return (
-    <section className="py-16 lg:py-24 bg-background">
+    <section className="py-16 lg:py-24 bg-secondary">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-accent">
+          <h2 className="font-display text-2xl uppercase tracking-wide text-accent">
             The Issues
           </h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
@@ -30,7 +30,7 @@ export function IssuesGrid() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-2">
           {featuredIssues.map((issue) => {
             const Icon = iconMap[issue.icon] || Briefcase
             return (

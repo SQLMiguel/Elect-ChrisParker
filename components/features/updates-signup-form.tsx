@@ -202,7 +202,7 @@ export function UpdatesSignupForm() {
 
       <Button
         type="submit"
-        className="w-full"
+        className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
         disabled={isLoading || !isFormValid}
       >
         {isLoading ? 'Subscribing...' : 'Sign Up for Updates'}

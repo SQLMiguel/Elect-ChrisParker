@@ -1,19 +1,20 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { Bebas_Neue, Montserrat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import { AnnouncementBar } from '@/components/layout/announcement-bar'
 import './globals.css'
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
+const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat" })
+const bebas = Bebas_Neue({ subsets: ["latin"], weight: "400", variable: "--font-bebas" })
 
 export const metadata: Metadata = {
   title: {
     default: 'Chris Parker for Forsyth County Commissioner | District B',
     template: '%s | Chris Parker for Commissioner',
   },
-  description: 'Elect Chris Parker for Forsyth County Commissioner District B. Leadership for Forsyth\'s Future - Economic Development, Public Safety, Fiscal Responsibility.',
+  description: 'Elect Chris Parker for Forsyth County Commissioner District B. Reasonable. Reliable. Respected. A local small business owner with bipartisan solutions.',
   keywords: ['Chris Parker', 'Forsyth County', 'Commissioner', 'District B', 'North Carolina', 'Election', 'Winston-Salem'],
   authors: [{ name: 'Committee to Elect Chris Parker' }],
   icons: {
@@ -27,12 +28,12 @@ export const metadata: Metadata = {
     url: 'https://www.votechrisparker.com',
     siteName: 'Chris Parker for Commissioner',
     title: 'Chris Parker for Forsyth County Commissioner',
-    description: 'Leadership for Forsyth\'s Future. Vote Chris Parker for County Commissioner District B.',
+    description: 'Reasonable. Reliable. Respected. Vote Chris Parker for Forsyth County Commissioner District B.',
   },
 }
 
 export const viewport: Viewport = {
-  themeColor: '#1e3a5f',
+  themeColor: '#1a1f4e',
   width: 'device-width',
   initialScale: 1,
 }
@@ -44,7 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${montserrat.variable} ${bebas.variable} font-sans antialiased`}>
         <AnnouncementBar />
         <Header />
         <main>{children}</main>
