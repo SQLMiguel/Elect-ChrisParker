@@ -55,7 +55,9 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 - `app/endorsements/page.tsx.bak`: the endorsements page is turned off. Only this backup file exists.
 - Form notifications use `nodemailer` with GoDaddy SMTP (`lib/actions/notifications.ts`), sending a CSV of the submission.
 - An attempted SMTP fix (`e7a189f`) was **reverted** in `840dfbe`, so SMTP delivery may still be an unresolved issue.
-- `input/` has the campaign's print source material (2 billboard JPGs, 3 mailer PDFs). It is untracked and is reference material only. `WebsiteSettings.jpg` is a screenshot of the Hostinger DNS records and isn't used on the site.
+- `input/` has the campaign's source material: 2 billboard JPGs, 3 mailer PDFs, and `input/From PhotoShot/` (the pro photo shoot, about 1.7 GB). The shoot folder holds 73 raw `DSC0xxxx.jpg` files, 21 retouched selects in `KWedits/ChrisParker-39..59.jpg`, and a copy of the marketing material. **`input/` is gitignored**; the web-sized copies live in `public/images/photoshoot/`. `WebsiteSettings.jpg` is a screenshot of the Hostinger DNS records and isn't used on the site.
+- **Photo map (redesign branch):** home hero is `chris-portrait-smile` (KW-45, the blue-shirt photo that matches the billboard). Home "Meet Chris" is `chris-porch-residents` (KW-47). 3 Reasons shows `chris-and-heather` (DSC03857). The Volunteer section background is `chris-garden-group` (DSC03839) under a navy overlay. The About hero is `chris-portrait-flag-tie` (KW-41), and the About page has a new "In the Community" gallery of 6 photos. Each issue on the Issues page has a photo (`issue.image` in `lib/data/issues.ts`): Fiscal uses the old `SittingAtDeskClean.png`, Safety uses the fire truck, Education the suit portrait (KW-58), Housing the neighborhood walk, and Community the garden conversation. The social share image is `og-image.jpg` (1200×630, from KW-44).
+- Photos no longer used but kept in `public/images/`: `Candidacy_edit.png` (old hero; the similar `candidacy-announcement.jpg` is still used by a news post) and `chris-parker-portrait.webp` (old About portrait). Heather's four bio photos (2×2 grid) are unchanged.
 - **Local dev gotcha:** `next.config.mjs` has `turbopack.root: '../'`, which resolves to `D:\` locally and breaks Tailwind resolution. Use `npx next dev --webpack` / `npx next build --webpack` locally. The config was left unchanged because Vercel may depend on it.
 - The remote has several stale branches (`v0/miceboll-1038-*`, `fiscal-responsibility-header`, `master`, etc.).
 
@@ -64,7 +66,8 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 - [ ] Review the `redesign-mailer-refresh` branch, then merge it to `main` (merging deploys to production).
 - [ ] Confirm whether form email (SMTP) delivery works in production.
 - [ ] Mailer copy typos to flag to the designer: "Chris **Partner**" (Piece 1 back), plus boilerplate text "Paid for by official funds authorized by the House of Representatives / 1032 Longworth HOB". Neither was used on the site.
-- [ ] Optional: use the mailer photos (e.g., Chris at the fire truck, Chris & Heather seated) if the campaign supplies the originals. No new photos were added in the redesign.
+- [ ] Confirm that people other than Chris and Heather who appear in the photo shoot (Vienna Village residents, neighbors) have agreed to appear on the website. Their faces are visible in `chris-library-visit`, `chris-garden-walk`, `chris-porch-residents`, and a few other photos.
+- [ ] Domain inconsistency: the site metadata uses `www.votechrisparker.com`, but the mailers print **ElectChrisParker.org** and the DNS screenshot shows `electchrisparker.org`. Confirm which domain is canonical and update `metadataBase`/`openGraph.url` in `app/layout.tsx` to match.
 - [ ] Minor inconsistency: About page Quick Facts says "resident since 1995", but the bio says 1994.
 
 ---
@@ -78,6 +81,22 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 - **Decisions / notes:** ...
 - **HEAD at end:** `abc1234`
 -->
+
+### 2026-09-27 — Pro photo shoot integrated (branch `redesign-mailer-refresh`)
+- **Source:** `input/From PhotoShot/` (94 photos). I preferred the photographer's retouched `KWedits` selects where they exist.
+- **New:**
+  - 15 web-sized photos plus `og-image.jpg` in `public/images/photoshoot/`, resized to 1400–2000px on the long edge at JPEG q80 (about 3.8 MB total). They were resized only, with no retouching. The Open Graph image is the one crop.
+  - An "In the Community" gallery on the About page.
+  - Optional `image` field on each issue, shown above its priorities card on the Issues page.
+  - Open Graph and Twitter share image, plus `metadataBase`.
+- **Changed:**
+  - The home hero now uses the billboard-matching blue-shirt portrait.
+  - The home "Meet Chris" photo is now the porch conversation. The old utility commission desk photo moved to the Fiscal Responsibility issue.
+  - The Chris & Heather photo was added to 3 Reasons.
+  - The Volunteer CTA now has a photo background.
+  - The About hero uses the new flag-tie portrait.
+  - `input/` was added to `.gitignore`.
+- **HEAD at end:** tip of `redesign-mailer-refresh` (commit "Add professional photo shoot images"). Not pushed.
 
 ### 2026-09-27 — Redesign from new mailers/billboards (branch `redesign-mailer-refresh`)
 - **Source:** `input/` billboards (red-striped and sky-blue versions) and mailer pieces 1–3.

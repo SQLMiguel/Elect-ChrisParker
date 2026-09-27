@@ -32,6 +32,39 @@ const values = [
   },
 ]
 
+const communityPhotos = [
+  {
+    src: "/images/photoshoot/chris-porch-conversation.jpg",
+    alt: "Chris Parker talking with neighbors on a porch",
+    caption: "Listening to neighbors",
+  },
+  {
+    src: "/images/photoshoot/chris-library-visit.jpg",
+    alt: "Chris Parker visiting with a resident in a library sitting room",
+    caption: "Visiting with residents",
+  },
+  {
+    src: "/images/photoshoot/chris-reading-group.jpg",
+    alt: "Chris Parker reading aloud to a small group",
+    caption: "Time with the community",
+  },
+  {
+    src: "/images/photoshoot/chris-garden-walk.jpg",
+    alt: "Chris Parker walking with a resident along a garden path",
+    caption: "Out in the neighborhood",
+  },
+  {
+    src: "/images/photoshoot/chris-and-heather-laughing.jpg",
+    alt: "Chris Parker and his wife, Heather",
+    caption: "Chris and Heather",
+  },
+  {
+    src: "/images/photoshoot/chris-fire-station.jpg",
+    alt: "Chris Parker at a Forsyth County fire station",
+    caption: "Supporting first responders",
+  },
+]
+
 export default function AboutPage() {
   return (
     <>
@@ -75,11 +108,11 @@ export default function AboutPage() {
             <div className="relative mx-auto w-full max-w-[20.5rem] lg:mx-0 lg:max-w-[23.75rem]">
               <div className="aspect-[5/6] overflow-hidden rounded-2xl bg-muted shadow-xl">
                 <Image
-                  src="/images/chris-parker-portrait.webp"
+                  src="/images/photoshoot/chris-portrait-flag-tie.jpg"
                   alt="Chris Parker - Official Portrait"
-                  width={400}
-                  height={500}
-                  className="h-full w-full object-cover"
+                  width={1200}
+                  height={1800}
+                  className="h-full w-full object-cover object-top"
                   priority
                 />
               </div>
@@ -224,6 +257,38 @@ export default function AboutPage() {
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* In the Community Gallery */}
+      <section className="py-16 lg:py-24 bg-background">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto">
+            <h2 className="font-display text-2xl uppercase tracking-wide text-accent">
+              In the Community
+            </h2>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
+              Invested in Forsyth County for Decades
+            </p>
+          </div>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {communityPhotos.map((photo) => (
+              <figure key={photo.src} className="group">
+                <div className="aspect-[3/2] overflow-hidden rounded-xl bg-muted shadow-md">
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    width={1400}
+                    height={933}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <figcaption className="mt-3 font-display text-xl uppercase tracking-wide text-primary">
+                  {photo.caption}
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>

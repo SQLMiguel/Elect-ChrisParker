@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Users, Phone, Home, Share2 } from "lucide-react"
 
@@ -27,7 +28,15 @@ const volunteerOptions = [
 
 export function VolunteerCTA() {
   return (
-    <section className="py-16 lg:py-24 bg-primary text-primary-foreground">
+    <section className="relative isolate overflow-hidden py-16 lg:py-24 bg-primary text-primary-foreground">
+      <Image
+        src="/images/photoshoot/chris-garden-group.jpg"
+        alt=""
+        fill
+        sizes="100vw"
+        className="-z-20 object-cover object-[center_40%]"
+      />
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-primary/85" />
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-balance">

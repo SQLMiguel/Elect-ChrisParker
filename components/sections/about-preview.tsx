@@ -21,10 +21,10 @@ export function AboutPreview() {
           <div className="relative order-2 lg:order-1">
             <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-muted shadow-xl">
               <Image
-                src="/images/SittingAtDeskClean.png"
-                alt="Chris Parker at his desk"
-                width={400}
-                height={300}
+                src="/images/photoshoot/chris-porch-residents.jpg"
+                alt="Chris Parker talking with neighbors on a front porch"
+                width={1600}
+                height={1067}
                 className="h-full w-full object-cover"
               />
             </div>

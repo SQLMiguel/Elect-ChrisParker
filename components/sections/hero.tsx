@@ -17,11 +17,11 @@ export function Hero() {
             />
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border-4 border-white bg-muted shadow-2xl">
               <Image
-                src="/images/Candidacy_edit.png"
+                src="/images/photoshoot/chris-portrait-smile.jpg"
                 alt="Chris Parker - Forsyth County Commissioner Candidate"
-                width={400}
-                height={500}
-                className="h-full w-full object-cover"
+                width={1800}
+                height={1200}
+                className="h-full w-full object-cover object-[20%_center]"
                 priority
               />
             </div>

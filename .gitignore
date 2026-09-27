@@ -18,3 +18,5 @@ next.user-config.*
 node_modules/
 .next/
 .DS_Store
+# Raw campaign source material (print PDFs, full-resolution photo shoot) - web copies live in public/images
+input/

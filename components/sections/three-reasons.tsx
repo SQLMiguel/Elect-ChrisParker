@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 const reasons = [
   {
     title: "He's Reasonable.",
@@ -28,6 +30,18 @@ export function ThreeReasons() {
             <p className="mt-5 font-display text-3xl leading-tight sm:text-4xl">
               Chris Parker is the right choice for County Commissioner:
             </p>
+            <figure className="mt-8">
+              <div className="aspect-[4/3] overflow-hidden border-4 border-white shadow-2xl">
+                <Image
+                  src="/images/photoshoot/chris-and-heather.jpg"
+                  alt="Chris Parker and his wife, Heather"
+                  width={1600}
+                  height={1067}
+                  className="h-full w-full object-cover object-[55%_center]"
+                />
+              </div>
+              <figcaption className="mt-2 text-sm text-white/80">Chris and his wife, Heather</figcaption>
+            </figure>
           </div>
 
           <ol className="space-y-8">

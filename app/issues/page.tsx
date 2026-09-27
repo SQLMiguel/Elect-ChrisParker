@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Briefcase, Shield, Calculator, GraduationCap, Building2, Heart, CheckCircle, ArrowRight } from "lucide-react"
 import { issues } from "@/lib/data/issues"
@@ -91,23 +92,41 @@ export default function IssuesPage() {
                       </p>
                     </div>
 
-                    {/* Priorities List */}
-                    <div className={`rounded-xl border border-border bg-card p-6 shadow-sm ${
-                      isEven ? "lg:order-2" : ""
-                    }`}>
-                      <h3 className="font-semibold text-foreground">
-                        {issue.id === "community-services"
-                          ? "Chris's Priorities for Community Services"
-                          : `Chris's Priorities for ${issue.title}`}
-                      </h3>
-                      <ul className="mt-4 space-y-4">
-                        {issue.priorities.map((priority, i) => (
-                          <li key={i} className="flex items-start gap-3">
-                            <CheckCircle className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-                            <span className="text-muted-foreground">{priority}</span>
-                          </li>
-                        ))}
-                      </ul>
+                    {/* Photo + Priorities List */}
+                    <div className={`space-y-6 ${isEven ? "lg:order-2" : ""}`}>
+                      {issue.image ? (
+                        <figure>
+                          <div className="aspect-[4/3] overflow-hidden rounded-xl bg-muted shadow-md">
+                            <Image
+                              src={issue.image.src}
+                              alt={issue.image.alt}
+                              width={issue.image.width}
+                              height={issue.image.height}
+                              className="h-full w-full object-cover object-[center_35%]"
+                            />
+                          </div>
+                          {issue.image.caption ? (
+                            <figcaption className="mt-2 text-sm text-muted-foreground">
+                              {issue.image.caption}
+                            </figcaption>
+                          ) : null}
+                        </figure>
+                      ) : null}
+                      <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
+                        <h3 className="font-semibold text-foreground">
+                          {issue.id === "community-services"
+                            ? "Chris's Priorities for Community Services"
+                            : `Chris's Priorities for ${issue.title}`}
+                        </h3>
+                        <ul className="mt-4 space-y-4">
+                          {issue.priorities.map((priority, i) => (
+                            <li key={i} className="flex items-start gap-3">
+                              <CheckCircle className="h-5 w-5 text-accent shrink-0 mt-0.5" />
+                              <span className="text-muted-foreground">{priority}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
 

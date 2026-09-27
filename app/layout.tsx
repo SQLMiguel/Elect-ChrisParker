@@ -10,6 +10,7 @@ const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat
 const bebas = Bebas_Neue({ subsets: ["latin"], weight: "400", variable: "--font-bebas" })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.votechrisparker.com'),
   title: {
     default: 'Chris Parker for Forsyth County Commissioner | District B',
     template: '%s | Chris Parker for Commissioner',
@@ -29,6 +30,20 @@ export const metadata: Metadata = {
     siteName: 'Chris Parker for Commissioner',
     title: 'Chris Parker for Forsyth County Commissioner',
     description: 'Reasonable. Reliable. Respected. Vote Chris Parker for Forsyth County Commissioner District B.',
+    images: [
+      {
+        url: '/images/photoshoot/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Chris Parker for Forsyth County Commissioner',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Chris Parker for Forsyth County Commissioner',
+    description: 'Reasonable. Reliable. Respected.',
+    images: ['/images/photoshoot/og-image.jpg'],
   },
 }
 

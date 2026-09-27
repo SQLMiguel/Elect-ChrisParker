@@ -1,3 +1,11 @@
+export interface IssueImage {
+  src: string
+  alt: string
+  width: number
+  height: number
+  caption?: string
+}
+
 export interface Issue {
   id: string
   title: string
@@ -5,6 +13,7 @@ export interface Issue {
   fullDescription: string
   icon: string
   priorities: string[]
+  image?: IssueImage
 }
 
 export const issues: Issue[] = [
@@ -20,6 +29,12 @@ export const issues: Issue[] = [
       "Increase transparency in county spending",
       "Build adequate reserves for emergencies",
     ],
+    image: {
+      src: "/images/SittingAtDeskClean.png",
+      alt: "Chris Parker presiding at a public meeting",
+      width: 1026,
+      height: 1532,
+    },
   },
   {
     id: "public-safety",
@@ -32,6 +47,12 @@ export const issues: Issue[] = [
       "Residents and businesses expect safe streets, schools, and public spaces.",
       "A decline in public safety signals a failure of government at the most basic level.",
     ],
+    image: {
+      src: "/images/photoshoot/chris-fire-truck.jpg",
+      alt: "Chris Parker standing beside a Forsyth County fire engine",
+      width: 1600,
+      height: 1067,
+    },
   },
   {
     id: "workforce-development-education",
@@ -48,6 +69,13 @@ export const issues: Issue[] = [
       "Streamline county permitting and approval processes",
       "Support adequate funding for public schools",
     ],
+    image: {
+      src: "/images/photoshoot/chris-portrait-suit.jpg",
+      alt: "Chris Parker, former Forsyth Tech trustee",
+      width: 1600,
+      height: 1067,
+      caption: "Former trustee, Forsyth Technical Community College",
+    },
   },
   {
     id: "housing-affordability",
@@ -61,6 +89,12 @@ export const issues: Issue[] = [
       "Find ways to cut regulatory burden especially with zoning",
       "Expand water and sewer infrastructure for growth",
     ],
+    image: {
+      src: "/images/photoshoot/chris-neighborhood-walk.jpg",
+      alt: "Chris Parker walking through a Forsyth County neighborhood",
+      width: 1600,
+      height: 1067,
+    },
   },
   {
     id: "community-services",
@@ -75,5 +109,11 @@ export const issues: Issue[] = [
       "Ensure accessible services throughout the county",
       "Partner with nonprofits to maximize community impact",
     ],
+    image: {
+      src: "/images/photoshoot/chris-garden-conversation.jpg",
+      alt: "Chris Parker talking with residents and neighbors outdoors",
+      width: 1600,
+      height: 1067,
+    },
   },
 ]
