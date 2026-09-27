@@ -20,3 +20,6 @@ node_modules/
 .DS_Store
 # Raw campaign source material (print PDFs, full-resolution photo shoot) - web copies live in public/images
 input/
+.vercel
+.env*
+!.env.example

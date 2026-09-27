@@ -1,0 +1,10 @@
+# Files excluded from `vercel` CLI uploads
+input/
+.env
+.env.*
+!.env.example
+WebsiteSettings.jpg
+node_modules/
+.next/
+tsconfig.tsbuildinfo
+*.docx

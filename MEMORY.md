@@ -59,11 +59,17 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 - **Photo map (redesign branch):** home hero is `chris-portrait-smile` (KW-45, the blue-shirt photo that matches the billboard). Home "Meet Chris" is `chris-porch-residents` (KW-47). 3 Reasons shows `chris-and-heather` (DSC03857). The Volunteer section background is `chris-garden-group` (DSC03839) under a navy overlay. The About hero is `chris-portrait-flag-tie` (KW-41), and the About page has a new "In the Community" gallery of 6 photos. Each issue on the Issues page has a photo (`issue.image` in `lib/data/issues.ts`): Fiscal uses the old `SittingAtDeskClean.png`, Safety uses the fire truck, Education the suit portrait (KW-58), Housing the neighborhood walk, and Community the garden conversation. The social share image is `og-image.jpg` (1200×630, from KW-44).
 - Photos no longer used but kept in `public/images/`: `Candidacy_edit.png` (old hero; the similar `candidacy-announcement.jpg` is still used by a news post) and `chris-parker-portrait.webp` (old About portrait). Heather's four bio photos (2×2 grid) are unchanged.
 - **Local dev gotcha:** `next.config.mjs` has `turbopack.root: '../'`, which resolves to `D:\` locally and breaks Tailwind resolution. Use `npx next dev --webpack` / `npx next build --webpack` locally. The config was left unchanged because Vercel may depend on it.
+- **Temporary preview hosting:** https://chrisparker-preview.vercel.app runs in Vercel project `chrisparker-preview`, under account `miguelcebollero-6953` (team `miguelcebollero-6953s-projects`). It is deployed from the local folder with the CLI and is **not** connected to Git. The live campaign site is **not** in this Vercel account.
+  - Redeploy: `npx vercel@latest deploy --prod --yes`. That is the preview project's own "production" and doesn't affect the live site.
+  - `.vercel/project.json` links the folder to that project and is gitignored. `.vercelignore` keeps `input/`, `.env*`, and `*.docx` out of uploads.
+  - `vercel.json` pins `"framework": "nextjs"`. It's needed because a project created with `vercel project add` has no framework preset, and without it every page returned 404.
+  - No env vars are set on the preview, so forms won't send email or save to Supabase there. Note that the Supabase keys (`NEXT_PUBLIC_SUPABASE_URL`/`_ANON_KEY`) aren't in the local `.env` either.
 - The remote has several stale branches (`v0/miceboll-1038-*`, `fiscal-responsibility-header`, `master`, etc.).
 
 ## Open Items
 
 - [ ] Review the `redesign-mailer-refresh` branch, then merge it to `main` (merging deploys to production).
+- [ ] When the branch is merged, delete the temporary Vercel project `chrisparker-preview`.
 - [ ] Confirm whether form email (SMTP) delivery works in production.
 - [ ] Mailer copy typos to flag to the designer: "Chris **Partner**" (Piece 1 back), plus boilerplate text "Paid for by official funds authorized by the House of Representatives / 1032 Longworth HOB". Neither was used on the site.
 - [ ] Confirm that people other than Chris and Heather who appear in the photo shoot (Vienna Village residents, neighbors) have agreed to appear on the website. Their faces are visible in `chris-library-visit`, `chris-garden-walk`, `chris-porch-residents`, and a few other photos.
@@ -81,6 +87,15 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 - **Decisions / notes:** ...
 - **HEAD at end:** `abc1234`
 -->
+
+### 2026-09-27: Temporary Vercel preview deployed
+- **New:**
+  - `.vercelignore` and `vercel.json` (`framework: nextjs`).
+  - Vercel project `chrisparker-preview`, live at https://chrisparker-preview.vercel.app. All main pages return 200.
+- **Changed:**
+  - The Vercel CLI added `.vercel` and `.env*` to `.gitignore`. I added `!.env.example` so the template stays tracked.
+- **Notes:** The first deploy returned 404 on every page because the framework preset was missing. `vercel.json` fixed it.
+- **HEAD at end:** tip of `redesign-mailer-refresh` (commit "Add Vercel preview deployment config"). Not pushed to GitHub.
 
 ### 2026-09-27 — Pro photo shoot integrated (branch `redesign-mailer-refresh`)
 - **Source:** `input/From PhotoShot/` (94 photos). I preferred the photographer's retouched `KWedits` selects where they exist.
