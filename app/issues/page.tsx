@@ -95,14 +95,23 @@ export default function IssuesPage() {
                     {/* Photo + Priorities List */}
                     <div className={`space-y-6 ${isEven ? "lg:order-2" : ""}`}>
                       {issue.image ? (
-                        <figure>
-                          <div className="aspect-[4/3] overflow-hidden rounded-xl bg-muted shadow-md">
+                        <figure
+                          className={
+                            issue.image.height > issue.image.width ? "mx-auto w-full max-w-sm" : undefined
+                          }
+                        >
+                          <div
+                            className={`${
+                              issue.image.height > issue.image.width ? "aspect-[3/4]" : "aspect-[4/3]"
+                            } overflow-hidden rounded-xl bg-muted shadow-md`}
+                          >
                             <Image
                               src={issue.image.src}
                               alt={issue.image.alt}
                               width={issue.image.width}
                               height={issue.image.height}
-                              className="h-full w-full object-cover object-[center_35%]"
+                              className="h-full w-full object-cover"
+                              style={{ objectPosition: issue.image.objectPosition ?? "center 35%" }}
                             />
                           </div>
                           {issue.image.caption ? (

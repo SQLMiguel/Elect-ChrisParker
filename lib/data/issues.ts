@@ -4,6 +4,8 @@ export interface IssueImage {
   width: number
   height: number
   caption?: string
+  /** CSS object-position used when the photo is cropped to its frame. */
+  objectPosition?: string
 }
 
 export interface Issue {
@@ -30,10 +32,10 @@ export const issues: Issue[] = [
       "Build adequate reserves for emergencies",
     ],
     image: {
-      src: "/images/SittingAtDeskClean.png",
-      alt: "Chris Parker presiding at a public meeting",
-      width: 1026,
-      height: 1532,
+      src: "/images/community/chris-as-commissioner.jpg",
+      alt: "Chris Parker at a Utility Commission meeting",
+      width: 1600,
+      height: 1200,
     },
   },
   {
@@ -48,10 +50,11 @@ export const issues: Issue[] = [
       "A decline in public safety signals a failure of government at the most basic level.",
     ],
     image: {
-      src: "/images/photoshoot/chris-fire-truck.jpg",
-      alt: "Chris Parker standing beside a Forsyth County fire engine",
-      width: 1600,
-      height: 1067,
+      src: "/images/community/chris-with-fire-truck-vertical.jpg",
+      alt: "Chris Parker standing beside a fire engine",
+      width: 1067,
+      height: 1600,
+      objectPosition: "center 60%",
     },
   },
   {
@@ -62,7 +65,6 @@ export const issues: Issue[] = [
     icon: "graduation-cap",
     priorities: [
       "Invest in workforce development at Forsyth Tech",
-      "Increase teacher pay",
       "Reduce wasteful spending in Forsyth County Public Schools",
       "Attract new businesses and industries to Forsyth County",
       "Support small business development and entrepreneurship",
@@ -70,11 +72,11 @@ export const issues: Issue[] = [
       "Support adequate funding for public schools",
     ],
     image: {
-      src: "/images/photoshoot/chris-portrait-suit.jpg",
-      alt: "Chris Parker, former Forsyth Tech trustee",
-      width: 1600,
-      height: 1067,
-      caption: "Former trustee, Forsyth Technical Community College",
+      src: "/images/community/chris-ftcc-graduation.jpg",
+      alt: "Chris Parker in academic regalia at a Forsyth Tech graduation ceremony",
+      width: 1200,
+      height: 1600,
+      caption: "Trustee, Forsyth Technical Community College",
     },
   },
   {
@@ -110,10 +112,10 @@ export const issues: Issue[] = [
       "Partner with nonprofits to maximize community impact",
     ],
     image: {
-      src: "/images/photoshoot/chris-garden-conversation.jpg",
-      alt: "Chris Parker talking with residents and neighbors outdoors",
-      width: 1600,
-      height: 1067,
+      src: "/images/community/chris-dss-lobby.jpg",
+      alt: "Chris Parker visiting a Department of Social Services lobby",
+      width: 1024,
+      height: 683,
     },
   },
 ]

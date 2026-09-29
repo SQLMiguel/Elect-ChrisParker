@@ -12,7 +12,7 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
    **Open Items**, and set **Last reviewed commit** to the current `HEAD`.
 
 **Last reviewed commit:** `5fa8636` on `main` (2026-06-03 — "Updated all social media links"); redesign work is on branch `redesign-mailer-refresh`
-**Last updated:** 2026-09-27
+**Last updated:** 2026-09-29
 
 ---
 
@@ -44,20 +44,23 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 
 ---
 
-## Current State (as of 2026-09-27)
+## Current State (as of 2026-09-29)
 
 - **Branch `redesign-mailer-refresh`** holds a mailer-based redesign (see Session Log). It is not merged or pushed yet. `main` is still the old design.
 - **Brand system (redesign):** navy `#1a1f4e` (primary), red `#b42328` (accent), sky `#8ab8d8` (`bg-sky`/`text-sky`), slate `#c5cdd4`.
   Fonts: Bebas Neue (`font-display`, and all `h1` via globals.css) and Montserrat (body, `font-sans`). Striped backgrounds: `bg-stripes-red`, `bg-stripes-red-horizontal`.
-- **Messaging (redesign):** slogan "Reasonable. Reliable. Respected."; tagline "A local small business owner with bipartisan solutions"; "3 Reasons" (Reasonable/Reliable/Respected); schools plan (Invest in workforce development at Forsyth Tech / Reduce wasteful spending in FCS / Increase teacher pay); "Vote early starting Thursday, October 15" + "Find your polling place at ncsbe.gov".
+- **Messaging (redesign):** slogan "Reasonable. Reliable. Respected."; tagline "A local small business owner with bipartisan solutions"; "3 Reasons" (Reasonable/Reliable/Respected, copy revised 2026-09-29); schools plan (Invest in workforce development at Forsyth Tech / Reduce wasteful spending in FCS / Create community collaboration to prepare for the jobs of today and tomorrow). **"Increase teacher pay" was removed everywhere at the client's request.** Chris is a **current** Forsyth Tech trustee (chair of the Student Success Committee) and YMCA board member; he *has chaired* the utility commission; "Vote early starting Thursday, October 15" + "Find your polling place at ncsbe.gov".
 - Campaign constants live in `lib/data/navigation.ts` → `campaignInfo` (slogan, tagline, early-voting dates, `pollingPlaceUrl`, `donateUrl`).
 - Feature flags: `SHOW_NEWS_SECTION = false`, `SHOW_EVENTS_SECTION = false`.
 - `app/endorsements/page.tsx.bak`: the endorsements page is turned off. Only this backup file exists.
 - Form notifications use `nodemailer` with GoDaddy SMTP (`lib/actions/notifications.ts`), sending a CSV of the submission.
 - An attempted SMTP fix (`e7a189f`) was **reverted** in `840dfbe`, so SMTP delivery may still be an unresolved issue.
 - `input/` has the campaign's source material: 2 billboard JPGs, 3 mailer PDFs, and `input/From PhotoShot/` (the pro photo shoot, about 1.7 GB). The shoot folder holds 73 raw `DSC0xxxx.jpg` files, 21 retouched selects in `KWedits/ChrisParker-39..59.jpg`, and a copy of the marketing material. **`input/` is gitignored**; the web-sized copies live in `public/images/photoshoot/`. `WebsiteSettings.jpg` is a screenshot of the Hostinger DNS records and isn't used on the site.
-- **Photo map (redesign branch):** home hero is `chris-portrait-smile` (KW-45, the blue-shirt photo that matches the billboard). Home "Meet Chris" is `chris-porch-residents` (KW-47). 3 Reasons shows `chris-and-heather` (DSC03857). The Volunteer section background is `chris-garden-group` (DSC03839) under a navy overlay. The About hero is `chris-portrait-flag-tie` (KW-41), and the About page has a new "In the Community" gallery of 6 photos. Each issue on the Issues page has a photo (`issue.image` in `lib/data/issues.ts`): Fiscal uses the old `SittingAtDeskClean.png`, Safety uses the fire truck, Education the suit portrait (KW-58), Housing the neighborhood walk, and Community the garden conversation. The social share image is `og-image.jpg` (1200×630, from KW-44).
-- Photos no longer used but kept in `public/images/`: `Candidacy_edit.png` (old hero; the similar `candidacy-announcement.jpg` is still used by a news post) and `chris-parker-portrait.webp` (old About portrait). Heather's four bio photos (2×2 grid) are unchanged.
+- **Photo map (redesign branch):** home hero is `chris-portrait-smile` (KW-45, the blue-shirt photo that matches the billboard). Home "Meet Chris" is `chris-porch-residents` (KW-47). 3 Reasons shows `chris-and-heather` (DSC03857). The Volunteer section background is `chris-garden-group` (DSC03839) under a navy overlay. The social share image is `og-image.jpg` (1200×630, from KW-44).
+  - **About** hero: `community/chris-portrait-about.jpg` (client's `forAboutPage.jpg`). "In the Community" gallery has 7 tiles (flex-wrap, last row centered): Listening to neighbors (photoshoot porch), Time with the community ×2 (community lunches), Out in the neighborhood (I-74 opening), Chris and Heather (event), Working with community leaders, Supporting first responders (horizontal fire truck).
+  - **Issues** (`issue.image` in `lib/data/issues.ts`): Fiscal = `chris-as-commissioner` (Utility Commission dais), Safety = `chris-with-fire-truck-vertical`, Education = `chris-ftcc-graduation` (caption "Trustee, Forsyth Technical Community College"), Housing = photoshoot neighborhood walk (placeholder until client sends another), Community Services = `chris-dss-lobby` (DSS kiosk; `dss ribbon cutting.jpg` is the unused 16:9 alternative). Portrait images (height > width) render in a centered `aspect-[3/4]` frame (max-w-sm); optional `objectPosition` per image.
+  - Client photos 2026-09-29 came from `input/NewPhotos/More photos/`; web copies in `public/images/community/` (EXIF-rotated, metadata/GPS stripped, ≤1800px, q80). Gotcha: `as Commissioner.jpg` is really a **HEIC** file — needs `pillow-heif` to read. Unused client photos there: I-74 ribbon cutting (`IMG_20260928_0946*`), Bank of America breakfast (`IMG_20260928_221430`), group photo (`IMG_20260928_221445`), `presenting to residents.jpg`, `seimens.jpg`.
+- Photos no longer used but kept in `public/images/`: `Candidacy_edit.png` (old hero; the similar `candidacy-announcement.jpg` is still used by a news post), `chris-parker-portrait.webp` (old About portrait), `SittingAtDeskClean.png`, and photoshoot files `chris-portrait-flag-tie`, `chris-portrait-suit`, `chris-fire-truck`, `chris-fire-station`, `chris-garden-conversation`, `chris-garden-walk`, `chris-library-visit`, `chris-reading-group`, `chris-and-heather-laughing`. Heather's four bio photos (2×2 grid) are unchanged.
 - **Local dev gotcha:** `next.config.mjs` has `turbopack.root: '../'`, which resolves to `D:\` locally and breaks Tailwind resolution. Use `npx next dev --webpack` / `npx next build --webpack` locally. The config was left unchanged because Vercel may depend on it.
 - **Temporary preview hosting:** https://chrisparker-preview.vercel.app runs in Vercel project `chrisparker-preview`, under account `miguelcebollero-6953` (team `miguelcebollero-6953s-projects`). It is deployed from the local folder with the CLI and is **not** connected to Git. The live campaign site is **not** in this Vercel account.
   - Redeploy: `npx vercel@latest deploy --prod --yes`. That is the preview project's own "production" and doesn't affect the live site.
@@ -75,6 +78,9 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 - [ ] Confirm that people other than Chris and Heather who appear in the photo shoot (Vienna Village residents, neighbors) have agreed to appear on the website. Their faces are visible in `chris-library-visit`, `chris-garden-walk`, `chris-porch-residents`, and a few other photos.
 - [ ] Domain inconsistency: the site metadata uses `www.votechrisparker.com`, but the mailers print **ElectChrisParker.org** and the DNS screenshot shows `electchrisparker.org`. Confirm which domain is canonical and update `metadataBase`/`openGraph.url` in `app/layout.tsx` to match.
 - [ ] Minor inconsistency: About page Quick Facts says "resident since 1995", but the bio says 1994.
+- [ ] Priority 4 (Housing) photo is a placeholder — client will send a replacement.
+- [ ] Copy that still says Chris "served" (past tense) at Forsyth Tech: About page Quick Facts ("Served on local boards…") — client now says he currently *serves*; confirm wording.
+- [ ] Confirm consent for other people visible in the new client photos (community lunches, DSS lobby, community leaders, I-74 opening).
 
 ---
 
@@ -87,6 +93,14 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 - **Decisions / notes:** ...
 - **HEAD at end:** `abc1234`
 -->
+
+### 2026-09-29 — Client copy + photo revisions (branch `redesign-mailer-refresh`)
+- **Changed (copy):** Home "Meet Chris" 2nd paragraph now opens "Chris serves as a trustee at Forsyth Tech and as a board member of the YMCA. He has chaired the local utility commission." 3 Reasons text replaced with client's wording. Schools Plan intro is now two paragraphs (Student Success Committee chair; President of Vienna Village) and the 3rd bullet is "Create community collaboration…". Removed "Increase teacher pay" from the Education issue priorities.
+- **Changed (photos):** About hero, About gallery (removed "Visiting with residents", added community lunches ×2, community leaders, new Chris & Heather, fire truck), and Issues photos for priorities 1, 2, 3, 5 — see Current State photo map. Issues page now supports portrait photos.
+- **New:** `public/images/community/` (11 web-sized client photos).
+- **Verified:** `tsc` clean; `next dev --webpack` renders home/about/issues; screenshots checked.
+- **Notes:** Preview site (chrisparker-preview.vercel.app) not redeployed yet this session.
+- **HEAD at end:** tip of `redesign-mailer-refresh` (commit "Apply client copy and photo revisions"). Not pushed.
 
 ### 2026-09-27: Temporary Vercel preview deployed
 - **New:**

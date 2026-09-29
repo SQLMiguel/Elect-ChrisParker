@@ -39,28 +39,33 @@ const communityPhotos = [
     caption: "Listening to neighbors",
   },
   {
-    src: "/images/photoshoot/chris-library-visit.jpg",
-    alt: "Chris Parker visiting with a resident in a library sitting room",
-    caption: "Visiting with residents",
-  },
-  {
-    src: "/images/photoshoot/chris-reading-group.jpg",
-    alt: "Chris Parker reading aloud to a small group",
+    src: "/images/community/chris-community-lunch-1.jpg",
+    alt: "Chris Parker at a community lunch gathering",
     caption: "Time with the community",
   },
   {
-    src: "/images/photoshoot/chris-garden-walk.jpg",
-    alt: "Chris Parker walking with a resident along a garden path",
+    src: "/images/community/chris-community-lunch-2.jpg",
+    alt: "Chris Parker speaking to residents at a community lunch",
+    caption: "Time with the community",
+  },
+  {
+    src: "/images/community/chris-in-neighborhood.jpg",
+    alt: "Chris Parker at the opening of a new section of Interstate 74",
     caption: "Out in the neighborhood",
   },
   {
-    src: "/images/photoshoot/chris-and-heather-laughing.jpg",
+    src: "/images/community/chris-and-heather-event.jpg",
     alt: "Chris Parker and his wife, Heather",
     caption: "Chris and Heather",
   },
   {
-    src: "/images/photoshoot/chris-fire-station.jpg",
-    alt: "Chris Parker at a Forsyth County fire station",
+    src: "/images/community/chris-community-leaders.jpg",
+    alt: "Chris Parker talking with community leaders",
+    caption: "Working with community leaders",
+  },
+  {
+    src: "/images/community/chris-with-fire-truck.jpg",
+    alt: "Chris Parker standing beside a fire engine",
     caption: "Supporting first responders",
   },
 ]
@@ -108,9 +113,9 @@ export default function AboutPage() {
             <div className="relative mx-auto w-full max-w-[20.5rem] lg:mx-0 lg:max-w-[23.75rem]">
               <div className="aspect-[5/6] overflow-hidden rounded-2xl bg-muted shadow-xl">
                 <Image
-                  src="/images/photoshoot/chris-portrait-flag-tie.jpg"
+                  src="/images/community/chris-portrait-about.jpg"
                   alt="Chris Parker - Official Portrait"
-                  width={1200}
+                  width={1515}
                   height={1800}
                   className="h-full w-full object-cover object-top"
                   priority
@@ -272,9 +277,12 @@ export default function AboutPage() {
               Invested in Forsyth County for Decades
             </p>
           </div>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 flex flex-wrap justify-center gap-6">
             {communityPhotos.map((photo) => (
-              <figure key={photo.src} className="group">
+              <figure
+                key={photo.src}
+                className="group w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
+              >
                 <div className="aspect-[3/2] overflow-hidden rounded-xl bg-muted shadow-md">
                   <Image
                     src={photo.src}

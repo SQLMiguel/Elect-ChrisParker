@@ -4,17 +4,17 @@ const reasons = [
   {
     title: "He's Reasonable.",
     description:
-      "Chris knows there are real problems facing Forsyth County and will work with Republicans and Democrats to solve them. He won't waste time with silly partisan games. And Chris is especially concerned about local taxes, supporting Forsyth Tech, and improving teacher pay and K-12 classrooms.",
+      "Chris knows there are real problems facing Forsyth County and will work hard to find common ground to solve them. He won't waste time with silly partisan games. Chris is especially concerned about keeping taxes low, supporting our first responders, and improving education.",
   },
   {
     title: "He's Reliable.",
     description:
-      "Chris and his wife, Heather, run a local small business and have been invested in Forsyth County for decades. Chris has served as a trustee at Forsyth Tech and as chair of the local utility commission.",
+      "Chris and his wife, Heather, run a local small business and have been deeply rooted in Forsyth County for decades. He understands the importance of keeping Forsyth County the best place to live, work, raise a family and run a business.",
   },
   {
     title: "He's Respected.",
     description:
-      "Chris has support from leaders and citizens across the county, in many different communities and from different walks of life.",
+      "Chris has support from leaders and citizens across the county and from different walks of life. Chris serves as a trustee at Forsyth Tech and as a board member of the YMCA. He has chaired the local utility commission. He and his wife are deeply involved in their church.",
   },
 ]
 

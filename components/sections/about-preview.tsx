@@ -51,8 +51,8 @@ export function AboutPreview() {
               business and raised his family in our community.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Chris served as a trustee at Forsyth Tech and chair of the local utility commission.
-              He&apos;s running for Commissioner to put his experience to work improving our
+              Chris serves as a trustee at Forsyth Tech and as a board member of the YMCA. He has
+              chaired the local utility commission. He&apos;s running for Commissioner to put his experience to work improving our
               schools, keeping property taxes low, fostering safe neighborhoods, and putting
               people over partisan politics.
             </p>

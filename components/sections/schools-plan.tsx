@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 const plan = [
   { verb: "Invest", rest: "in workforce development at Forsyth Tech" },
   { verb: "Reduce", rest: "wasteful spending in Forsyth County Public Schools" },
-  { verb: "Increase", rest: "teacher pay" },
+  { verb: "Create", rest: "community collaboration to prepare for the jobs of today and tomorrow" },
 ]
 
 export function SchoolsPlan() {
@@ -29,9 +29,15 @@ export function SchoolsPlan() {
               our community college
             </h2>
             <p className="mt-6 text-lg leading-relaxed">
-              Chris Parker served as a trustee at Forsyth Tech Community College. He&apos;s seen
-              the challenges facing our schools and our students, and he has the experience to
-              find common-sense solutions.
+              Chris Parker serves as a trustee at Forsyth Tech Community College where he is the
+              chair of the Student Success Committee. He&apos;s seen the challenges facing our K-12
+              schools, and he has the talent to work with others to find common sense solutions.
+            </p>
+            <p className="mt-4 text-lg leading-relaxed">
+              As President of Vienna Village, he understands the importance of educating our youth
+              for the jobs of today and tomorrow whether in healthcare, technology or the skilled
+              trades. He understands the importance education plays in keeping Forsyth County the
+              best place to live, work, raise a family and run a business.
             </p>
           </div>
 
