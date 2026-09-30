@@ -98,7 +98,8 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 - **Changed:** Home blue Schools Plan section (`components/sections/schools-plan.tsx`): the small red label now reads "Chris' Plan for Our Schools" (shown in all caps as "CHRIS' PLAN FOR OUR SCHOOLS"); it used to say "Chris's". The large heading "The experience to improve our schools & support our community college" stays as it is. The client only wanted the label wording changed. An earlier attempt that replaced the heading was reverted.
 - **Changed (About):** "In the Community" gallery is back to 6 photos. Removed the first "Time with the community" tile (`chris-community-lunch-1.jpg`, wide room shot) and kept `chris-community-lunch-2.jpg` (close-up of Chris speaking). The image file is still in `public/images/community/` but nothing references it.
 - **Verified:** checked the rendered label text on the dev server.
-- **HEAD at end:** `ea57dce` + uncommitted change. Not committed/pushed.
+- **Deployed:** redeployed https://chrisparker-preview.vercel.app with `npx vercel deploy --prod --yes`, run from the repo root (the project is linked in `.vercel/`). The first attempt returned "Not authorized" and a retry succeeded. The live preview shows both changes. GitHub was not touched.
+- **HEAD at end:** `cbadd35` on `redesign-mailer-refresh` (local commit, not pushed to GitHub).
 
 ### 2026-09-29 — Client copy + photo revisions (branch `redesign-mailer-refresh`)
 - **Changed (copy):** Home "Meet Chris" 2nd paragraph now opens "Chris serves as a trustee at Forsyth Tech and as a board member of the YMCA. He has chaired the local utility commission." 3 Reasons text replaced with client's wording. Schools Plan intro is now two paragraphs (Student Success Committee chair; President of Vienna Village) and the 3rd bullet is "Create community collaboration…". Removed "Increase teacher pay" from the Education issue priorities.
