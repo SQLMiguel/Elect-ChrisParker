@@ -11,7 +11,7 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 3. At session end: add a new entry to the **Session Log** (newest on top), update **Current State**,
    **Open Items**, and set **Last reviewed commit** to the current `HEAD`.
 
-**Last reviewed commit:** `ba29e98` on `main` (2026-09-30: "Build with webpack to fix Hostinger Turbopack CSS crash"). The redesign is merged and live.
+**Last reviewed commit:** `5641676` on `main` (2026-09-30: "Add Privacy Policy and Terms of Use pages"). The redesign is merged and live.
 **Last updated:** 2026-09-30
 
 ---
@@ -73,6 +73,7 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 ## Open Items
 
 - [x] Review the `redesign-mailer-refresh` branch, then merge it to `main`. Done 2026-09-30.
+- [ ] Have the campaign review the Privacy Policy and Terms of Use wording (`app/privacy`, `app/terms`).
 - [ ] `@vercel/analytics` script returns 404 on Hostinger (`/_vercel/insights/script.js`). It's harmless but noisy; remove `<Analytics />` if the site will stay on Hostinger only.
 - [ ] When the branch is merged, delete the temporary Vercel project `chrisparker-preview`.
 - [ ] Confirm whether form email (SMTP) delivery works in production.
@@ -95,6 +96,10 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 - **Decisions / notes:** ...
 - **HEAD at end:** `abc1234`
 -->
+
+### 2026-09-30 — Privacy Policy + Terms of Use pages
+- **New:** `app/privacy/page.tsx` and `app/terms/page.tsx`, both built on a shared `components/sections/legal-page.tsx`. The footer links to `/privacy` and `/terms` used to return 404. The content is based on what the site actually collects: the updates sign-up (with SMS/email opt-ins), volunteer, and contact forms, whose submissions are emailed to the campaign. The pages also cover Anedot donations and hosting/analytics logs. The Privacy Policy includes SMS terms (STOP/HELP, "message and data rates may apply", no sharing of opt-ins). Effective date 2026-09-30.
+- **Note:** this is general website wording, not legal advice. The campaign should review it.
 
 ### 2026-09-30 — Redesign published to GitHub + Hostinger
 - **Pushed:** `redesign-mailer-refresh` to GitHub, then fast-forwarded `main` from `5fa8636` to it, which published the whole redesign.
