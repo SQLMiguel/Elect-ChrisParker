@@ -11,7 +11,7 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 3. At session end: add a new entry to the **Session Log** (newest on top), update **Current State**,
    **Open Items**, and set **Last reviewed commit** to the current `HEAD`.
 
-**Last reviewed commit:** `5fa8636` on `main` (2026-06-03 — "Updated all social media links"); redesign work is on branch `redesign-mailer-refresh`
+**Last reviewed commit:** `ba29e98` on `main` (2026-09-30: "Build with webpack to fix Hostinger Turbopack CSS crash"). The redesign is merged and live.
 **Last updated:** 2026-09-30
 
 ---
@@ -20,7 +20,8 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 
 - Campaign website for Chris Parker. Repo: `SQLMiguel/Elect-ChrisParker`, branch `main`.
 - Next.js 16 (App Router) + React 19 + TypeScript + Tailwind CSS v4 + shadcn/ui (Radix). Originally generated with v0.
-- Hosted on Vercel; **every merge/push to `main` auto-deploys**. Domain: `www.votechrisparker.com`.
+- **Live site: https://electchrisparker.org, hosted on Hostinger** (Next.js app on the Hostinger CDN, `hcdn`). Hostinger watches GitHub `main` and **auto-builds and publishes on every push to `main`**, which takes about 2–5 minutes. The build runs `npm run build`, which is now `next build --webpack` because Turbopack crashed in Hostinger's build. Do **not** switch the build back to Turbopack.
+- Pushes to `main` also trigger two Vercel projects in a separate Vercel account (`miceboll-1038s-projects`: `elect-chris-parker`, `v0-chris-parker`). The site metadata domain is `www.votechrisparker.com`.
 - Commands: `npm run dev`, `npm run build`, `npm run lint`.
 
 ### Key locations
@@ -44,9 +45,9 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 
 ---
 
-## Current State (as of 2026-09-29)
+## Current State (as of 2026-09-30)
 
-- **Branch `redesign-mailer-refresh`** holds a mailer-based redesign (see Session Log). It is not merged or pushed yet. `main` is still the old design.
+- **The redesign is live.** Branch `redesign-mailer-refresh` was fast-forwarded into `main` and pushed on 2026-09-30, and the two branches are identical. Hostinger published it to electchrisparker.org.
 - **Brand system (redesign):** navy `#1a1f4e` (primary), red `#b42328` (accent), sky `#8ab8d8` (`bg-sky`/`text-sky`), slate `#c5cdd4`.
   Fonts: Bebas Neue (`font-display`, and all `h1` via globals.css) and Montserrat (body, `font-sans`). Striped backgrounds: `bg-stripes-red`, `bg-stripes-red-horizontal`.
 - **Messaging (redesign):** slogan "Reasonable. Reliable. Respected."; tagline "A local small business owner with bipartisan solutions"; "3 Reasons" (Reasonable/Reliable/Respected, copy revised 2026-09-29); schools plan (Invest in workforce development at Forsyth Tech / Reduce wasteful spending in FCS / Create community collaboration to prepare for the jobs of today and tomorrow). **"Increase teacher pay" was removed everywhere at the client's request.** Chris is a **current** Forsyth Tech trustee (chair of the Student Success Committee) and YMCA board member; he *has chaired* the utility commission; "Vote early starting Thursday, October 15" + "Find your polling place at ncsbe.gov".
@@ -71,7 +72,8 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 
 ## Open Items
 
-- [ ] Review the `redesign-mailer-refresh` branch, then merge it to `main` (merging deploys to production).
+- [x] Review the `redesign-mailer-refresh` branch, then merge it to `main`. Done 2026-09-30.
+- [ ] `@vercel/analytics` script returns 404 on Hostinger (`/_vercel/insights/script.js`). It's harmless but noisy; remove `<Analytics />` if the site will stay on Hostinger only.
 - [ ] When the branch is merged, delete the temporary Vercel project `chrisparker-preview`.
 - [ ] Confirm whether form email (SMTP) delivery works in production.
 - [ ] Mailer copy typos to flag to the designer: "Chris **Partner**" (Piece 1 back), plus boilerplate text "Paid for by official funds authorized by the House of Representatives / 1032 Longworth HOB". Neither was used on the site.
@@ -93,6 +95,11 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 - **Decisions / notes:** ...
 - **HEAD at end:** `abc1234`
 -->
+
+### 2026-09-30 — Redesign published to GitHub + Hostinger
+- **Pushed:** `redesign-mailer-refresh` to GitHub, then fast-forwarded `main` from `5fa8636` to it, which published the whole redesign.
+- **Build fix:** Hostinger's first build failed because Turbopack crashed while evaluating PostCSS/Tailwind for `app/globals.css`, most likely by running out of memory. Changed the `build` script to `next build --webpack` (`ba29e98`). The local production build passes, and Hostinger then built and published successfully. Hostinger's suggested `experimental.turbopack: false` is not a valid setting in Next 16.
+- **Verified live on electchrisparker.org:** the Home label reads "CHRIS' PLAN FOR OUR SCHOOLS" and the heading is intact. The About gallery shows 6 photos with only `lunch-2`. `/issues`, `/contact`, `/get-involved`, and `/donate` all return 200. There are no broken images. The only 404 is the Vercel Analytics script.
 
 ### 2026-09-30 — Schools Plan label wording (branch `redesign-mailer-refresh`)
 - **Changed:** Home blue Schools Plan section (`components/sections/schools-plan.tsx`): the small red label now reads "Chris' Plan for Our Schools" (shown in all caps as "CHRIS' PLAN FOR OUR SCHOOLS"); it used to say "Chris's". The large heading "The experience to improve our schools & support our community college" stays as it is. The client only wanted the label wording changed. An earlier attempt that replaced the heading was reverted.
