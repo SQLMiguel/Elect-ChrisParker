@@ -11,7 +11,7 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 3. At session end: add a new entry to the **Session Log** (newest on top), update **Current State**,
    **Open Items**, and set **Last reviewed commit** to the current `HEAD`.
 
-**Last reviewed commit:** `5641676` on `main` (2026-09-30: "Add Privacy Policy and Terms of Use pages"). The redesign is merged and live.
+**Last reviewed commit:** `447fbda` on `main` (2026-09-30: "Add Privacy Policy and Terms of Use pages"). The redesign is merged and live.
 **Last updated:** 2026-09-30
 
 ---
