@@ -15,7 +15,7 @@ export function SchoolsPlan() {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <p className="font-display text-2xl uppercase tracking-wide text-accent">
-              Chris&apos;s Plan for Our Schools
+              Chris&apos; Plan for Our Schools
             </p>
             <h2 className="mt-2 text-3xl font-bold leading-tight sm:text-4xl text-balance">
               The{" "}

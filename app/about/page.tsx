@@ -39,11 +39,6 @@ const communityPhotos = [
     caption: "Listening to neighbors",
   },
   {
-    src: "/images/community/chris-community-lunch-1.jpg",
-    alt: "Chris Parker at a community lunch gathering",
-    caption: "Time with the community",
-  },
-  {
     src: "/images/community/chris-community-lunch-2.jpg",
     alt: "Chris Parker speaking to residents at a community lunch",
     caption: "Time with the community",
