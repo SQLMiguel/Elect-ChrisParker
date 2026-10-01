@@ -155,7 +155,7 @@ export default function IssuesPage() {
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Chris&apos;s Commitment to You
+              Chris&apos; Commitment to You
             </h2>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
               &ldquo;I will listen to your concerns, work across party lines when it serves our 

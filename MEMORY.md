@@ -11,8 +11,8 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 3. At session end: add a new entry to the **Session Log** (newest on top), update **Current State**,
    **Open Items**, and set **Last reviewed commit** to the current `HEAD`.
 
-**Last reviewed commit:** `447fbda` on `main` (2026-09-30: "Add Privacy Policy and Terms of Use pages"). The redesign is merged and live.
-**Last updated:** 2026-09-30
+**Last reviewed commit:** `79f3019` on `main` (2026-10-01).
+**Last updated:** 2026-10-01
 
 ---
 
@@ -45,7 +45,7 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 
 ---
 
-## Current State (as of 2026-09-30)
+## Current State (as of 2026-10-01)
 
 - **The redesign is live.** Branch `redesign-mailer-refresh` was fast-forwarded into `main` and pushed on 2026-09-30, and the two branches are identical. Hostinger published it to electchrisparker.org.
 - **Brand system (redesign):** navy `#1a1f4e` (primary), red `#b42328` (accent), sky `#8ab8d8` (`bg-sky`/`text-sky`), slate `#c5cdd4`.
@@ -63,6 +63,7 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
   - Client photos 2026-09-29 came from `input/NewPhotos/More photos/`; web copies in `public/images/community/` (EXIF-rotated, metadata/GPS stripped, ≤1800px, q80). Gotcha: `as Commissioner.jpg` is really a **HEIC** file — needs `pillow-heif` to read. Unused client photos there: I-74 ribbon cutting (`IMG_20260928_0946*`), Bank of America breakfast (`IMG_20260928_221430`), group photo (`IMG_20260928_221445`), `presenting to residents.jpg`, `seimens.jpg`.
 - Photos no longer used but kept in `public/images/`: `Candidacy_edit.png` (old hero; the similar `candidacy-announcement.jpg` is still used by a news post), `chris-parker-portrait.webp` (old About portrait), `SittingAtDeskClean.png`, and photoshoot files `chris-portrait-flag-tie`, `chris-portrait-suit`, `chris-fire-truck`, `chris-fire-station`, `chris-garden-conversation`, `chris-garden-walk`, `chris-library-visit`, `chris-reading-group`, `chris-and-heather-laughing`. Heather's four bio photos (2×2 grid) are unchanged.
 - **Local dev gotcha:** `next.config.mjs` has `turbopack.root: '../'`, which resolves to `D:\` locally and breaks Tailwind resolution. Use `npx next dev --webpack` / `npx next build --webpack` locally. The config was left unchanged because Vercel may depend on it.
+- **VS Code local run task:** `.vscode/tasks.json` runs `npm run dev -- --webpack` to start the local site at `http://localhost:3000`.
 - **Temporary preview hosting:** https://chrisparker-preview.vercel.app runs in Vercel project `chrisparker-preview`, under account `miguelcebollero-6953` (team `miguelcebollero-6953s-projects`). It is deployed from the local folder with the CLI and is **not** connected to Git. The live campaign site is **not** in this Vercel account.
   - Redeploy: `npx vercel@latest deploy --prod --yes`. That is the preview project's own "production" and doesn't affect the live site.
   - `.vercel/project.json` links the folder to that project and is gitignored. `.vercelignore` keeps `input/`, `.env*`, and `*.docx` out of uploads.
@@ -72,6 +73,7 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 
 ## Open Items
 
+- `components/sections/donate-cta.tsx` references `/images/pattern.svg`, which is missing from `public/images/` and returns 404 locally (decorative background).
 - [x] Review the `redesign-mailer-refresh` branch, then merge it to `main`. Done 2026-09-30.
 - [ ] Have the campaign review the Privacy Policy and Terms of Use wording (`app/privacy`, `app/terms`).
 - [ ] `@vercel/analytics` script returns 404 on Hostinger (`/_vercel/insights/script.js`). It's harmless but noisy; remove `<Analytics />` if the site will stay on Hostinger only.
@@ -96,6 +98,17 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 - **Decisions / notes:** ...
 - **HEAD at end:** `abc1234`
 -->
+
+### 2026-10-01 — Issues page heading punctuation
+- **Changed:** Updated the Issues page heading to “Chris' Commitment to You” per request.
+- **Verified:** `/issues` returns HTTP 200 locally; no editor diagnostics in `app/issues/page.tsx`.
+- **HEAD at end:** `79f3019`
+
+### 2026-10-01 — Local website startup
+- **Changed:** Added a VS Code task in `.vscode/tasks.json` to run the development server with webpack, avoiding the local Turbopack root issue.
+- **Verified:** The homepage loads at `http://localhost:3000/` and its navigation, content sections, and signup form are present (HTTP 200).
+- **Noted:** The donate CTA's decorative `/images/pattern.svg` background asset is missing and logs a 404.
+- **HEAD at end:** `79f3019`
 
 ### 2026-09-30 — Privacy Policy + Terms of Use pages
 - **New:** `app/privacy/page.tsx` and `app/terms/page.tsx`, both built on a shared `components/sections/legal-page.tsx`. The footer links to `/privacy` and `/terms` used to return 404. The content is based on what the site actually collects: the updates sign-up (with SMS/email opt-ins), volunteer, and contact forms, whose submissions are emailed to the campaign. The pages also cover Anedot donations and hosting/analytics logs. The Privacy Policy includes SMS terms (STOP/HELP, "message and data rates may apply", no sharing of opt-ins). Effective date 2026-09-30.
