@@ -11,7 +11,7 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 3. At session end: add a new entry to the **Session Log** (newest on top), update **Current State**,
    **Open Items**, and set **Last reviewed commit** to the current `HEAD`.
 
-**Last reviewed commit:** `79f3019` on `main` (2026-10-01).
+**Last reviewed commit:** `40fda3b` on `main` (2026-10-01: "Fix Issues page heading punctuation; add local dev task"). Pushed live and verified on electchrisparker.org.
 **Last updated:** 2026-10-01
 
 ---
@@ -99,10 +99,11 @@ Persistent notes for AI chat sessions. **Read this first at the start of every s
 - **HEAD at end:** `abc1234`
 -->
 
-### 2026-10-01 — Issues page heading punctuation
+### 2026-10-01 — Issues page heading punctuation, pushed live
 - **Changed:** Updated the Issues page heading to “Chris' Commitment to You” per request.
-- **Verified:** `/issues` returns HTTP 200 locally; no editor diagnostics in `app/issues/page.tsx`.
-- **HEAD at end:** `79f3019`
+- **Pushed:** Pushed `redesign-mailer-refresh` (2 commits) to GitHub, fast-forwarded `main` to match, and pushed `main`. Hostinger auto-built and deployed; confirmed live on https://electchrisparker.org/issues after deploy.
+- **Verified:** `/issues` returns HTTP 200 locally and on production; no editor diagnostics in `app/issues/page.tsx`.
+- **HEAD at end:** `40fda3b`
 
 ### 2026-10-01 — Local website startup
 - **Changed:** Added a VS Code task in `.vscode/tasks.json` to run the development server with webpack, avoiding the local Turbopack root issue.
